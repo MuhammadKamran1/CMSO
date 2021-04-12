@@ -12,7 +12,7 @@ class Form extends Component{
                    placeholder="Email"
                    placeholderTextColor="#ffffff"
                    selectionColor='red'
-                   onSubmitEditing={()=>this.password.focus()}
+                   onSubmitEditing={()=>this.password.focus( )}
 
                 />
                 <TextInput style={styles.inputBox} 
