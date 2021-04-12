@@ -14,7 +14,7 @@ const Signup = ({navigation}) =>{
                     <Button 
                     style={style.signupButton}
                     title='Login' 
-                    onPress={() => navigation.pop()}
+                    onPress={() => navigation.pop( )}
 
                     />    
             </View>    
