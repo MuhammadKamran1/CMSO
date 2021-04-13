@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import {TouchableOpacity,TextInput,View, Text, StyleSheet,StatusBar} from 'react-native';
 
-class Form extends Component{
+class LoginForm extends Component{
     constructor(props){
         super(props)
     }
@@ -31,7 +31,7 @@ class Form extends Component{
 }
 
 
-export default Form;
+export default LoginForm;
 
 const styles= StyleSheet.create({
     cointainer:{
