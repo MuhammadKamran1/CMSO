@@ -8,23 +8,32 @@ import {
   StatusBar,
 } from 'react-native';
 
-const LoginForm = ({}) => {
+const LoginForm = ({onSubmit, onChange, form,errors}) => {
   return (
     <View style={styles.cointainer}>
-      <TextInput
+      {/* <TextInput
         style={styles.inputBox}
         placeholder="Email"
         placeholderTextColor="#ffffff"
         selectionColor="red"
         onSubmitEditing={() => this.password.focus()}
-      />
-      <TextInput
+        
+        onTextChange={(value)=>{
+            onChange({email:"Emails",value})
+            error={errors.email}
+        }}
+      /> */}
+      {/* <TextInput
         style={styles.inputBox}
         placeholder="Password"
         secureTextEntry={true}
         placeholderTextColor="#ffffff"
         ref={input => (this.password = input)}
-      />
+        onTextChange={(value)=>{
+            onChange({email:"Emails",value})
+        error={errors.password}
+            }}
+      /> */}
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>{this.props.type}</Text>
       </TouchableOpacity>

@@ -1,20 +1,54 @@
-import React,{Component} from 'react'
-import {View, Text, StyleSheet,StatusBar, Button} from 'react-native';
+import React,{useState} from 'react'
+import {View, Text, StyleSheet,StatusBar, Button, TextInput, TouchableOpacity} from 'react-native';
 import Logo from '../screens/Logo';
-import LoginForm from '../App/Form';
 
 const Login = ({navigation}) =>{
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const[emailError, setEmailError]= useState(false)
+  const[passwordError, setPasswordError]= useState(false)
+
+  const handleLogin = () =>{
+    if (email.length<4 || email.length==0){
+        setEmailError(true)
+    }
+
+    if (password.length<4 || password.length==0){
+      setPasswordError(true)
+  }
+  }
     return(
-        <View style={style.cointainer}>
+        <View style={styles.cointainer}>
             <Logo/>
-            <LoginForm type="Login"/>
-            <View style={style.signupTextCont}>
-                    <Text style={style.signupText}>Do not have an account yet? </Text>
-                    <Text style={style.signupButton}> 
+            <View style={styles.cointainer1}>
+              <TextInput
+                style={styles.inputBox}
+                placeholder="Email"
+                placeholderTextColor="#ffffff"
+                selectionColor="red"
+                value={email}
+                onChangeText={(text) => {setEmail(text)}}
+              />
+              { emailError && <Text>There is error</Text>}
+              <TextInput
+                style={styles.inputBox}
+                placeholder="Password"
+                secureTextEntry={true}
+                placeholderTextColor="#ffffff"
+                value={password}
+                onChangeText={setPassword}
+              />
+               { passwordError && <Text>Invalid Password</Text>}
+              <TouchableOpacity onPress={handleLogin} style={styles.button}>
+                <Text style={styles.buttonText}>Login</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.signupTextCont}>
+                    <Text style={styles.signupText}>Do not have an account yet? </Text>
+                    <Text style={styles.signupButton}> 
                     <Button
                         title='Signup'
-                        onPress={() => navigation.navigate('SignupScreen')}
-                    />
+                        onPress={() => navigation.navigate('SignupScreen')}/>
                     </Text>
             </View>  
         </View>
@@ -24,7 +58,7 @@ const Login = ({navigation}) =>{
 
 export default Login;
 
-const style= StyleSheet.create({
+const styles= StyleSheet.create({
   cointainer:{
     backgroundColor: '#455a64',
     flex: 1,
@@ -48,7 +82,34 @@ const style= StyleSheet.create({
       color:'#ffffff',
       fontSize:16,
       fontWeight:'500',
-  }
+  },
+  cointainer1: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  inputBox: {
+    width: 300,
+    backgroundColor: 'rgba(255,255,255,0.3)',
+    borderRadius: 25,
+    paddingHorizontal: 16,
+    fontSize: 16,
+    color: '#ffffff',
+    marginVertical: 10,
+  },
+  button: {
+    backgroundColor: '#1c313a',
+    borderRadius: 25,
+    width: 300,
+    marginVertical: 13,
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#ffffff',
+    textAlign: 'center',
+    paddingVertical: 12,
+  },
 
 
 });
