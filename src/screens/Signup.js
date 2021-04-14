@@ -1,18 +1,92 @@
 import React,{Component} from 'react'
-import {View, Text, StyleSheet,Button} from 'react-native';
+import {TouchableOpacity,TextInput,View, Text, StyleSheet,Button} from 'react-native';
+import { useState } from 'react/cjs/react.development';
 import Logo from '../screens/Logo';
-import SignupForm from '../App/SignupForm';
 
 const Signup = ({navigation}) =>{
+
+    const[name,setName]=useState("")
+    const[mobilenumber,setMobileNumber]=useState("")
+    const[email,setEmail]=useState("")
+    const[password,setPassword]=useState("")
+
+    const[nameError,setNameError]=useState(false)
+    const[mobilenumberError,setMobileNumberError]=useState(false)
+    const[emailError,setEmailError]=useState(false)
+    const[passwordError,setPasswordError]=useState(false)
+
+    const HandlSignup=()=>{
+       if(name.length<3  || name.length==0){
+           setNameError(true)
+       }
+
+       if(mobilenumber.length<11  || name.length==0){
+        setMobileNumberError(true)
+    }
+
+    if(email.length<7  || name.length==0){
+        setEmailError(true)
+    }
+
+    if(password.length<3  || name.length==0){
+        setPasswordError(true)
+    }
+
+
+    }
     
     return(
-        <View style={style.cointainer}>
+
+      
+        <View style={styles.cointainer1}>
             <Logo/>
-            <SignupForm type="Signup"/>
-                <View style={style.signupTextCont}>
-                    <Text style={style.signupText}> Already have an Account?  </Text>
+            <View style={styles.cointainer}>
+                <TextInput style={styles.inputBox} 
+                   placeholder="Full Name"
+                   placeholderTextColor="#ffffff"
+                   selectionColor='red'
+                   value={name}
+                   onChangeText={setName}
+                />
+
+                { nameError   &&<Text>Invalid Name</Text>}
+
+                <TextInput style={styles.inputBox} 
+                   placeholder="Mobile Number"
+                   keyboardType = 'numeric'
+                   placeholderTextColor="#ffffff"
+                   selectionColor='red'
+                   value={mobilenumber}
+                   onChangeText={setMobileNumber}
+                />
+                { mobilenumberError   &&<Text>Invalid Name</Text>}
+                <TextInput style={styles.inputBox} 
+                   placeholder="Email"
+                   placeholderTextColor="#ffffff"
+                   selectionColor='red'
+                   value={email}
+                   onChangeText={setEmail}
+
+                />
+
+                 { emailError   &&<Text>Invalid Name</Text>}
+                <TextInput style={styles.inputBox} 
+                   placeholder="Password"
+                   secureTextEntry={true}
+                   placeholderTextColor="#ffffff"
+                   value={password}
+                   onChangeText={setPassword}
+                /> 
+
+                 { passwordError   &&<Text>Invalid Password</Text>}
+                <TouchableOpacity onPress={HandlSignup} style={styles.button}>
+                    <Text style={styles.buttonText}>Signup</Text>
+                </TouchableOpacity>
+            </View>
+                <View style={styles.signupTextCont}>
+                    <Text style={styles.signupText}> Already have an Account?  </Text>
                     <Button 
-                    style={style.signupButton}
+                    style={styles.signupButton}
                     title='Login' 
                     onPress={() => navigation.navigate('MyTabs')}
 
@@ -25,8 +99,8 @@ const Signup = ({navigation}) =>{
 
 export default Signup;
 
-const style= StyleSheet.create({
-  cointainer:{
+const styles= StyleSheet.create({
+  cointainer1:{
     backgroundColor: '#455a64',
     flex: 1,
     alignItems: 'center',
@@ -49,6 +123,38 @@ const style= StyleSheet.create({
       color:'#ffffff',
       fontSize:16,
       fontWeight:'500',
+  },
+  cointainer:{
+    flexGrow: 1, 
+    justifyContent:'center',
+    alignItems:'center',
+  },
+  inputBox:{
+      width:300,
+      backgroundColor:'rgba(255,255,255,0.3)',
+      borderRadius: 25, 
+      paddingHorizontal:16,
+      fontSize:16,
+      color:'#ffffff',
+      marginVertical:10,
+  },
+  button:{
+      backgroundColor:'#1c313a',
+      borderRadius: 25, 
+      width:300,
+      marginVertical:13,
+
+
+  },
+  buttonText:{
+
+      fontSize:16,
+      fontWeight:'500',
+      color:'#ffffff',
+      textAlign:'center',
+      paddingVertical:12,
+      
+
   }
 
 
