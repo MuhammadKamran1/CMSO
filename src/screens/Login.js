@@ -1,19 +1,19 @@
 import React,{Component} from 'react'
 import {View, Text, StyleSheet,StatusBar, Button} from 'react-native';
 import Logo from '../screens/Logo';
-import Form from '../App/Form';
+import LoginForm from '../App/Form';
 
 const Login = ({navigation}) =>{
     return(
         <View style={style.cointainer}>
             <Logo/>
-            <Form type="Login"/>
+            <LoginForm type="Login"/>
             <View style={style.signupTextCont}>
                     <Text style={style.signupText}>Do not have an account yet? </Text>
                     <Text style={style.signupButton}> 
                     <Button
                         title='Signup'
-                        onPress={() => navigation.push('SignupScreen')}
+                        onPress={() => navigation.navigate('SignupScreen')}
                     />
                     </Text>
             </View>  

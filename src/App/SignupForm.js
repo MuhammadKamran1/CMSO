@@ -1,9 +1,9 @@
 import React,{Component} from 'react'
 import {TouchableOpacity,TextInput,View, Text, StyleSheet,StatusBar} from 'react-native';
 
-class SignupForm extends Component{
+const SignupForm=({})=>{
     
-    render(){
+    
         return(
             <View style={styles.cointainer}>
                 <TextInput style={styles.inputBox} 
@@ -36,7 +36,7 @@ class SignupForm extends Component{
             </View>
 
         );
-    }
+    
 }
 
 

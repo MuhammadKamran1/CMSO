@@ -3,17 +3,7 @@ import {View, StyleSheet} from 'react-native';
 import LottieView from 'lottie-react-native';
 
 
-
-
-
-
-
 const Splash=({navigation})=> {
-
-
-    
-
-
 
         return(
            
