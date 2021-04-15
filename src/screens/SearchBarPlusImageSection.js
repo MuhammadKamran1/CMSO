@@ -8,8 +8,6 @@ const SearchBar=()=>{
         <View style={{flex:1}}>
             <View style={{height:80, backgroundColor:'#455a64', justifyContent:'center', paddingHorizontal:15}}>
               <View style={{height:50, backgroundColor:'#ffffff'}}>
-                   <MaterialIcons name='search' style={{fontSize:18}}/>
-                   
                   <TextInput placeholder="Search" style={{fontSize:18}}/>
 
               </View>

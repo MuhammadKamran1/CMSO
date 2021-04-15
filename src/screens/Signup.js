@@ -1,17 +1,9 @@
 import React,{Component} from 'react'
-<<<<<<< Updated upstream
-import {View, Text, StyleSheet,Button} from 'react-native';
-=======
 import {TouchableOpacity,TextInput,View, Text, StyleSheet,Button} from 'react-native';
-import { red100 } from 'react-native-paper/lib/typescript/styles/colors';
 import { useState } from 'react/cjs/react.development';
->>>>>>> Stashed changes
 import Logo from '../screens/Logo';
-import SignupForm from '../App/SignupForm';
 
 const Signup = ({navigation}) =>{
-<<<<<<< Updated upstream
-=======
 
     const[name,setName]=useState("")
     const[mobilenumber,setMobileNumber]=useState("")
@@ -29,7 +21,7 @@ const Signup = ({navigation}) =>{
            setNameError(true)
        }
 
-       if(!mobilenumber.length==11){
+       if(mobilenumber.length==11){
         setMobileNumberError(true)
     }
 
@@ -42,16 +34,12 @@ const Signup = ({navigation}) =>{
     }
 
 }
->>>>>>> Stashed changes
     
     return(
-        <View style={style.cointainer}>
+
+      
+        <View style={styles.cointainer1}>
             <Logo/>
-<<<<<<< Updated upstream
-            <SignupForm type="Signup"/>
-                <View style={style.signupTextCont}>
-                    <Text style={style.signupText}> Already have an Account?  </Text>
-=======
             <View style={styles.cointainer}>
                 <TextInput style={styles.inputBox} 
                    placeholder="Full Name"
@@ -90,18 +78,17 @@ const Signup = ({navigation}) =>{
                    onChangeText={setPassword}
                 /> 
 
-                 { passwordError   &&<Text style={styles.invalidInput}>Password length Must Atleast be 8</Text>}
+                 { passwordError  &&<Text style={styles.invalidInput}>Password length Must Atleast be 8</Text>}
                 <TouchableOpacity onPress={HandlSignup} style={styles.button}>
                     <Text style={styles.buttonText}>Signup</Text>
                 </TouchableOpacity>
             </View>
                 <View style={styles.signupTextCont}>
                     <Text style={styles.signupText}> Already have an Account?  </Text>
->>>>>>> Stashed changes
                     <Button 
-                    style={style.signupButton}
+                    style={styles.signupButton}
                     title='Login' 
-                    onPress={() => navigation.pop( )}
+                    onPress={() => navigation.navigate('MyTabs')}
 
                     />    
             </View>    
@@ -111,15 +98,10 @@ const Signup = ({navigation}) =>{
 
 export default Signup;
 
-<<<<<<< Updated upstream
-const style= StyleSheet.create({
-  cointainer:{
-=======
 
 
 const styles= StyleSheet.create({
   cointainer1:{
->>>>>>> Stashed changes
     backgroundColor: '#455a64',
     flex: 1,
     alignItems: 'center',
@@ -142,9 +124,6 @@ const styles= StyleSheet.create({
       color:'#ffffff',
       fontSize:16,
       fontWeight:'500',
-<<<<<<< Updated upstream
-  }
-=======
   },
   cointainer:{
     flexGrow: 1, 
@@ -182,7 +161,6 @@ const styles= StyleSheet.create({
     textAlign:"left",
     color: 'red',
   },
->>>>>>> Stashed changes
 
 
 });
