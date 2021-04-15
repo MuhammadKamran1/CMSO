@@ -19,7 +19,7 @@ const App = () => {
 
   const MyTabs = () => {
     return (
-      <Tab.Navigator>
+      <Tab.Navigator >
         <Tab.Screen name="Products" component={ProductCategories}></Tab.Screen>
         <Tab.Screen name="Services" component={ServicesCategories}></Tab.Screen>
         <Tab.Screen name="Cart" component={Cart}></Tab.Screen>
