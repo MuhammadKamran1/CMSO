@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-
+import SearchBar from '../SearchbarPlusImages'
 
 const ProductCategories=({})=>{
 
@@ -9,6 +9,7 @@ const ProductCategories=({})=>{
             <Text style={style.ProductsCart}>
                 This page will show Product Categories List
             </Text>
+            {/* <SearchBar /> */}
         </View>
     )
 }

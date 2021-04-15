@@ -8,7 +8,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Splash from '../screens/SplashScreen';
 import SpecificProductCategory from '../screens/product/ProductView';
-import ProductCategory from '../screens/product/ProductCategories';
+import ProductCategories from '../screens/product/ProductCategories';
 import ServicesCategories from '../screens/Services/ServicesCategories';
 import Cart from'../screens/CartScreen';
 import Account from '../screens/AccountScreen';
@@ -20,12 +20,10 @@ const App = () => {
   const MyTabs = () => {
     return (
       <Tab.Navigator>
-        <Tab.Screen name="Products" component={ProductCategory}></Tab.Screen>
+        <Tab.Screen name="Products" component={ProductCategories}></Tab.Screen>
         <Tab.Screen name="Services" component={ServicesCategories}></Tab.Screen>
         <Tab.Screen name="Cart" component={Cart}></Tab.Screen>
         <Tab.Screen name="Account" component={Account}></Tab.Screen>
-
-
         
       </Tab.Navigator>
       
