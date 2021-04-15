@@ -16,21 +16,21 @@ const Signup = ({navigation}) =>{
     const[passwordError,setPasswordError]=useState(false)
 
     const HandlSignup=()=>{
-       if(name.length<3  || name.length==0){
-           setNameError(true)
-       }
-
-       if(mobilenumber.length<11  || name.length==0){
-        setMobileNumberError(true)
-    }
-
-    if(email.length<7  || name.length==0){
-        setEmailError(true)
-    }
-
-    if(password.length<3  || name.length==0){
-        setPasswordError(true)
-    }
+        if(name.length<3  || name.length==0){
+            setNameError(true)
+        }
+ 
+        if(mobilenumber.length==11){
+         setMobileNumberError(true)
+     }
+ 
+     if(email.length<7  || email.length==0){
+         setEmailError(true)
+     }
+ 
+     if(password.length<=8){
+         setPasswordError(true)
+     }
 
 
     }

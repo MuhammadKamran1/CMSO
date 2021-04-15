@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import {StyleSheet, AppRegistry} from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
+import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import EntypoIcons from 'react-native-vector-icons/Entypo';
+
 import Login from '../screens/Login';
 import Signup from '../screens/Signup';
 import {NavigationContainer} from '@react-navigation/native';
@@ -10,7 +14,7 @@ import Splash from '../screens/SplashScreen';
 import SpecificProductCategory from '../screens/product/ProductView';
 import ProductCategories from '../screens/product/ProductCategories';
 import ServicesCategories from '../screens/Services/ServicesCategories';
-import Cart from'../screens/CartScreen';
+import Cart from '../screens/CartScreen';
 import Account from '../screens/AccountScreen';
 
 const App = () => {
@@ -19,20 +23,49 @@ const App = () => {
 
   const MyTabs = () => {
     return (
-      <Tab.Navigator >
-        <Tab.Screen name="Products" component={ProductCategories}></Tab.Screen>
-        <Tab.Screen name="Services" component={ServicesCategories}></Tab.Screen>
-        <Tab.Screen name="Cart" component={Cart}></Tab.Screen>
-        <Tab.Screen name="Account" component={Account}></Tab.Screen>
-        
+      <Tab.Navigator>
+        <Tab.Screen
+          name="Products"
+          component={ProductCategories}
+          options={{
+            tabBarLabel: 'Products',
+            tabBarIcon: ({color}) => (
+              <EntypoIcons name="home" color={color} size={25} /> 
+            ),
+          }}></Tab.Screen>
+        <Tab.Screen
+          name="Services"
+          component={ServicesCategories}
+          options={{
+            tabBarLabel: 'Services',
+            tabBarIcon: ({color}) => (
+              <EntypoIcons name="tools" color={color} size={25} />
+            ),
+          }}></Tab.Screen>
+        <Tab.Screen
+          name="Cart"
+          component={Cart}
+          options={{
+            tabBarLabel: 'Cart',
+            tabBarIcon: ({color}) => (
+              <Icon name="shopping-cart" color={color} size={25} />
+            ),
+          }}></Tab.Screen>
+        <Tab.Screen
+          name="Account"
+          component={Account}
+          options={{
+            tabBarLabel: 'Account',
+            tabBarIcon: ({color}) => (
+              <MaterialIcon name="account" color={color} size={25} />
+            ),
+          }}></Tab.Screen>
       </Tab.Navigator>
-      
     );
   };
 
   return (
-    <NavigationContainer>
-      {/* <HP/> */}
+    <NavigationContainer style={styles.tabNamesContainer}>
       <Stack.Navigator initialRouteName="Splash">
         <Stack.Screen
           name="SplashScreen"
@@ -70,5 +103,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  tabNamesContainer: {
+    flexDirection: 'row',
   },
 });

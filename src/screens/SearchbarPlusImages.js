@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign';
+import Icon from 'react-native-vector-icons/Feather';
 
 
 const SearchBar = () => {
@@ -13,9 +13,17 @@ const SearchBar = () => {
           justifyContent: 'center',
           paddingHorizontal: 15,
         }}>
-        <View style={{height: 50, backgroundColor: '#ffffff'}}>
-          <TextInput placeholder="Search" style={{fontSize: 18}} />
-          <Icon name="star" size={30} />
+        <View 
+            style={{
+              height: 50, 
+              backgroundColor: '#ffffff',
+              flexDirection:'row',
+              padding:5,
+              alignItems:'center'
+              }}>
+        
+          <Icon name="search" size={24} />
+          <TextInput placeholder="Search" style={{fontSize: 20, paddingVertical:5}} />
         </View>
       </View>
     </View>

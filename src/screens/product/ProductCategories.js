@@ -8,11 +8,7 @@ const ProductCategories=({})=>{
 
     return(
         <View>
-            <Text style={style.ProductsCart}>
-                This page will show Product Categories List
-            </Text>
-            <Icon name="car" size={40}/>
-            {/* <SearchBar /> */}
+            <SearchBar/>
         </View>
     )
 }

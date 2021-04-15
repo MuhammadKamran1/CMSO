@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
 
@@ -21,7 +21,6 @@ const style= StyleSheet.create({
         justifyContent:'center',
         paddingVertical:16,
         flexDirection:'row',
-
 
     }
 
