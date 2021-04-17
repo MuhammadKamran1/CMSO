@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {View, Text, StyleSheet,StatusBar, Button, TextInput, TouchableOpacity} from 'react-native';
+import {ImageBackground,View, Text, StyleSheet,StatusBar, Button, TextInput, TouchableOpacity} from 'react-native';
 import Logo from '../screens/Logo';
 
 const Login = ({navigation}) =>{
@@ -19,6 +19,10 @@ const Login = ({navigation}) =>{
   }
     return(
         <View style={styles.cointainer}>
+           <ImageBackground 
+                  source={require('../assets/brickwall.jpg')}
+                  style={{width: 360, height: 650 ,flex:1}} 
+             />
             <Logo/>
             <View style={styles.cointainer1}>
               <TextInput

@@ -7,7 +7,7 @@ const Account=({})=>{
     return(
         <View>
             <Text style={style.ProductsCart}>
-                THIS IS AN ACCOUNT SCREEN
+                THIS IS AN PROFILE SCREEN
                 </Text>
         </View>
     );

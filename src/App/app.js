@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, AppRegistry} from 'react-native';
+import {StyleSheet, AppRegistry, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import EntypoIcons from 'react-native-vector-icons/Entypo';
@@ -15,7 +15,7 @@ import SpecificProductCategory from '../screens/product/ProductView';
 import ProductCategories from '../screens/product/ProductCategories';
 import ServicesCategories from '../screens/Services/ServicesCategories';
 import Cart from '../screens/CartScreen';
-import Account from '../screens/AccountScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 const App = () => {
   const Stack = createStackNavigator();
@@ -23,6 +23,7 @@ const App = () => {
 
   const MyTabs = () => {
     return (
+     
       <Tab.Navigator>
         <Tab.Screen
           name="Products"
@@ -30,7 +31,7 @@ const App = () => {
           options={{
             tabBarLabel: 'Products',
             tabBarIcon: ({color}) => (
-              <EntypoIcons name="home" color={color} size={25} /> 
+              <EntypoIcons name="home" color={color} size={30} /> 
             ),
           }}></Tab.Screen>
         <Tab.Screen
@@ -39,7 +40,7 @@ const App = () => {
           options={{
             tabBarLabel: 'Services',
             tabBarIcon: ({color}) => (
-              <EntypoIcons name="tools" color={color} size={25} />
+              <EntypoIcons name="tools" color={color} size={30} />
             ),
           }}></Tab.Screen>
         <Tab.Screen
@@ -48,19 +49,20 @@ const App = () => {
           options={{
             tabBarLabel: 'Cart',
             tabBarIcon: ({color}) => (
-              <Icon name="shopping-cart" color={color} size={25} />
+              <Icon name="shopping-cart" color={color} size={30} />
             ),
           }}></Tab.Screen>
         <Tab.Screen
-          name="Account"
-          component={Account}
+          name="ProfileScreen"
+          component={ProfileScreen}
           options={{
-            tabBarLabel: 'Account',
+            tabBarLabel: 'ProfileScreen',
             tabBarIcon: ({color}) => (
-              <MaterialIcon name="account" color={color} size={25} />
+              <MaterialIcon name="account" color={color} size={30}/>
             ),
           }}></Tab.Screen>
       </Tab.Navigator>
+     
     );
   };
 
@@ -87,8 +89,6 @@ const App = () => {
           component={MyTabs}
           options={{headerShown: false}}
         />
-
-        {/* <Stack.Screen name="ProductScreen" component={HP} options={{headerShown: false}}/> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -108,4 +108,6 @@ const styles = StyleSheet.create({
   tabNamesContainer: {
     flexDirection: 'row',
   },
+
+  
 });

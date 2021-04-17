@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, TextInput} from 'react-native';
+import {View, Text, StyleSheet, TextInput, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
 
@@ -8,14 +8,14 @@ const SearchBar = () => {
     <View style={{flex: 1}}>
       <View
         style={{
-          height: 80,
-          backgroundColor: '#455a64',
+          height: 60,
+          backgroundColor: 'black',
           justifyContent: 'center',
           paddingHorizontal: 15,
         }}>
         <View 
             style={{
-              height: 50, 
+              height: 45, 
               backgroundColor: '#ffffff',
               flexDirection:'row',
               padding:5,
@@ -23,21 +23,18 @@ const SearchBar = () => {
               }}>
         
           <Icon name="search" size={24} />
-          <TextInput placeholder="Search" style={{fontSize: 20, paddingVertical:5}} />
+          <TextInput placeholder="Search" style={{fontSize: 20, paddingVertical:5, width:90,flex:1}} />
         </View>
       </View>
     </View>
   );
-};
-
+}
+    
 export default SearchBar;
+      
+
 
 const styles = StyleSheet.create({
-  // searchView:{
-  //    alignItems:'center',
-  //    justifyContent:'center',
-  //    flex:0.5
-  // },
 
   searchInput: {
     backgroundColor: '#BFBFBF',
@@ -48,4 +45,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     //flexGrow:10,
   },
+
+  
 });

@@ -5,10 +5,10 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 class Logo extends Component{
     render(){
         return(
-             <View style={style.cointainer}>
+             <View style={styles.cointainer}>
                 <Image style={{width:150, height:60}}
                     source={require('../assets/log2.jpg')}/>
-                    <Text style={style.logoText}>Welcome To My App</Text>
+                    <Text style={styles.logoText}>Welcome To My App</Text>
              </View>
             
         );
@@ -18,7 +18,7 @@ class Logo extends Component{
 
 export default Logo;
 
-const style= StyleSheet.create({
+const styles= StyleSheet.create({
     cointainer:{
       flexGrow: 1, 
       justifyContent:'flex-end',

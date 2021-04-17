@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {TouchableOpacity,TextInput,View, Text, StyleSheet,Button} from 'react-native';
+import {TouchableOpacity,TextInput,View,ImageBackground, Text, StyleSheet,Button} from 'react-native';
 import { useState } from 'react/cjs/react.development';
 import Logo from '../screens/Logo';
 
@@ -20,7 +20,7 @@ const Signup = ({navigation}) =>{
             setNameError(true)
         }
  
-        if(mobilenumber.length==11){
+        if(!(mobilenumber.length==11)){
          setMobileNumberError(true)
      }
  
@@ -28,7 +28,7 @@ const Signup = ({navigation}) =>{
          setEmailError(true)
      }
  
-     if(password.length<=8){
+     if(password.length<8){
          setPasswordError(true)
      }
 
@@ -39,6 +39,11 @@ const Signup = ({navigation}) =>{
 
       
         <View style={styles.cointainer1}>
+            
+             <ImageBackground 
+                  source={require('../assets/brickwall.jpg')}
+                  style={{width: 360, height: 650 ,flex:1}} 
+             />
             <Logo/>
             <View style={styles.cointainer}>
                 <TextInput style={styles.inputBox} 
@@ -49,7 +54,7 @@ const Signup = ({navigation}) =>{
                    onChangeText={setName}
                 />
 
-                { nameError   &&<Text>Invalid Name</Text>}
+                { nameError   && <Text style={styles.errorText} >Invalid Name</Text>}
 
                 <TextInput style={styles.inputBox} 
                    placeholder="Mobile Number"
@@ -59,7 +64,7 @@ const Signup = ({navigation}) =>{
                    value={mobilenumber}
                    onChangeText={setMobileNumber}
                 />
-                { mobilenumberError   &&<Text>Invalid Name</Text>}
+                { mobilenumberError   && <Text style={styles.errorText}>Invalid Mobile Number</Text>}
                 <TextInput style={styles.inputBox} 
                    placeholder="Email"
                    placeholderTextColor="#ffffff"
@@ -69,7 +74,7 @@ const Signup = ({navigation}) =>{
 
                 />
 
-                 { emailError   &&<Text>Invalid Name</Text>}
+                 { emailError   &&<Text style={styles.errorText}>Invalid Email</Text>}
                 <TextInput style={styles.inputBox} 
                    placeholder="Password"
                    secureTextEntry={true}
@@ -78,7 +83,7 @@ const Signup = ({navigation}) =>{
                    onChangeText={setPassword}
                 /> 
 
-                 { passwordError   &&<Text>Invalid Password</Text>}
+                 { passwordError   &&<Text style={styles.errorText}>Password must have 8 characters</Text>}
                 <TouchableOpacity onPress={HandlSignup} style={styles.button}>
                     <Text style={styles.buttonText}>Signup</Text>
                 </TouchableOpacity>
@@ -126,8 +131,8 @@ const styles= StyleSheet.create({
   },
   cointainer:{
     flexGrow: 1, 
-    justifyContent:'center',
-    alignItems:'center',
+   justifyContent:'center',
+   //alignItems:'center',
   },
   inputBox:{
       width:300,
@@ -155,7 +160,14 @@ const styles= StyleSheet.create({
       paddingVertical:12,
       
 
-  }
+  },
+
+  errorText:{
+   color:'yellow',
+   textAlign:'left',
+   fontSize:18
+
+  },
 
 
 });
