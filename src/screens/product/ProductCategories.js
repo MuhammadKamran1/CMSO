@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Image,View, Text, StyleSheet,ScrollView} from 'react-native';
+import { Image,View, Text, StyleSheet,ScrollView,TouchableOpacity,Alert} from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import SearchBar from '../SearchBar';
 import Icon from 'react-native-vector-icons/Feather';
@@ -12,9 +12,10 @@ return(
   <ScrollView  style={styles.container} >
     <View>
         <SearchBar />
+        
         <SwiperImages/>
         
-        <View style={styles.cardsWrapper}>
+        
                <Text
                     style={{
                     alignSelf: 'center',
@@ -26,21 +27,24 @@ return(
                             }}>
                     PRODUCT CATEGORIES           
                 </Text>
-            
-                
+                <TouchableOpacity onPress={() => Alert.alert('Building and Hardware')}>
+                <View style={styles.cardsWrapper}>
                 <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
                     <Image source={require('../../assets/PC1.jpg')} resizeMode='cover' style={styles.cardImg} />
                 </View>
                 <View style={styles.cardInfo}>
+                  
                     <Text style={styles.cardTitle}>Building and Hardware</Text>
                     <Text style={styles.cardDetails}>
                     Description of the Product
-                    </Text>
+                    </Text> 
                 </View>
                 </View>
                 </View>
+                </TouchableOpacity>
 
+                <TouchableOpacity onPress={() => Alert.alert('Kitchen And Bthroom')}>
                 <View style={styles.cardsWrapper}>
                 <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
@@ -54,7 +58,9 @@ return(
                 </View>
                 </View>
                 </View>
+                </TouchableOpacity>
 
+                <TouchableOpacity onPress={() => Alert.alert('Outdoor And Garden')}>
                 <View style={styles.cardsWrapper}>
                 <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
@@ -68,7 +74,9 @@ return(
                 </View>
                 </View>
                 </View>
-
+                </TouchableOpacity>
+            
+                <TouchableOpacity onPress={() => Alert.alert('Tools and Construction Machinery')}>
                 <View style={styles.cardsWrapper}>
                 <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
@@ -82,7 +90,9 @@ return(
                 </View>
                 </View>
                 </View>
+                </TouchableOpacity>
 
+                <TouchableOpacity onPress={() => Alert.alert('Lighting and Elecrical')}>
                 <View style={styles.cardsWrapper}>
                 <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
@@ -96,7 +106,9 @@ return(
                 </View>
                 </View>
                 </View>
-
+                </TouchableOpacity>
+ 
+                <TouchableOpacity onPress={() => Alert.alert('Painting and Decoration')}>
                 <View style={styles.cardsWrapper}>
                 <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
@@ -110,7 +122,9 @@ return(
                 </View>
                 </View>
                 </View>
+                </TouchableOpacity>
 
+                <TouchableOpacity onPress={() => Alert.alert('Tiling and Flooring')}>
                 <View style={styles.cardsWrapper}>
                 <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
@@ -124,7 +138,10 @@ return(
                 </View>
                 </View>
                 </View>
+                </TouchableOpacity>
 
+
+                <TouchableOpacity onPress={() => Alert.alert('Plumbing')}>
                 <View style={styles.cardsWrapper}>
                 <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
@@ -138,7 +155,10 @@ return(
                 </View>
                 </View>
                 </View>
+                </TouchableOpacity>
 
+
+                <TouchableOpacity onPress={() => Alert.alert('Eco Friendly')}>
                 <View style={styles.cardsWrapper}>
                 <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
@@ -152,6 +172,7 @@ return(
                 </View>
             </View>
             </View>
+            </TouchableOpacity>
 
      
   </View>

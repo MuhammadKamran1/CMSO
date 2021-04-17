@@ -33,7 +33,7 @@ const Login = ({navigation}) =>{
                 value={email}
                 onChangeText={(text) => {setEmail(text)}}
               />
-              { emailError && <Text>There is error</Text>}
+              {/* { emailError && <Text style={styles.errorText}>There is error</Text>} */}
               <TextInput
                 style={styles.inputBox}
                 placeholder="Password"
@@ -42,7 +42,7 @@ const Login = ({navigation}) =>{
                 value={password}
                 onChangeText={setPassword}
               />
-               { passwordError && <Text>Invalid Password</Text>}
+               { passwordError && <Text style={styles.errorText}>Incorrect Password or Email</Text>}
               <TouchableOpacity onPress={handleLogin} style={styles.button}>
                 <Text style={styles.buttonText}>Login</Text>
               </TouchableOpacity>
@@ -90,7 +90,7 @@ const styles= StyleSheet.create({
   cointainer1: {
     flexGrow: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    //alignItems: 'center',
   },
   inputBox: {
     width: 300,
@@ -98,7 +98,7 @@ const styles= StyleSheet.create({
     borderRadius: 25,
     paddingHorizontal: 16,
     fontSize: 16,
-    color: '#ffffff',
+    color: 'blue',
     marginVertical: 10,
   },
   button: {
@@ -114,6 +114,13 @@ const styles= StyleSheet.create({
     textAlign: 'center',
     paddingVertical: 12,
   },
+
+  errorText:{
+    color:'yellow',
+    textAlign:'left',
+    fontSize:18
+ 
+   },
 
 
 });

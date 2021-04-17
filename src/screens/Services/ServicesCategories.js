@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import { Image,View, Text, StyleSheet,ScrollView} from 'react-native';
-import { Searchbar } from 'react-native-paper';
+import { Image,View, Text, StyleSheet,ScrollView, TouchableOpacity,Alert} from 'react-native';
+//import { Searchbar } from 'react-native-paper';
 import SearchBar from '../SearchBar';
-import Icon from 'react-native-vector-icons/Feather';
-//import ProfileScreen from '../ProfileScreen';
 import SwiperImages from '../SwiperImages';
 
 const ProductCategories=()=>{
@@ -14,7 +12,7 @@ return(
         <SearchBar />
         <SwiperImages/>
         
-        <View style={styles.cardsWrapper}>
+        
                <Text
                     style={{
                     alignSelf: 'center',
@@ -26,8 +24,8 @@ return(
                             }}>
                         SERVICES CATEGORIES           
                 </Text>
-            
-                
+                <TouchableOpacity onPress={() => Alert.alert('Developers')}>
+                <View style={styles.cardsWrapper}>
                 <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
                     <Image source={require('../../assets/SC1.jpg')} resizeMode='cover' style={styles.cardImg} />
@@ -40,7 +38,9 @@ return(
                 </View>
                 </View>
                 </View>
+                </TouchableOpacity>
 
+                <TouchableOpacity onPress={() => Alert.alert('Builder and Contractor')}>
                 <View style={styles.cardsWrapper}>
                 <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
@@ -54,7 +54,9 @@ return(
                 </View>
                 </View>
                 </View>
+                </TouchableOpacity>
 
+                <TouchableOpacity onPress={() => Alert.alert('Consultants, Architect and Interior Designer')}>
                 <View style={styles.cardsWrapper}>
                 <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
@@ -68,7 +70,9 @@ return(
                 </View>
                 </View>
                 </View>
+                </TouchableOpacity>
 
+                <TouchableOpacity onPress={() => Alert.alert('General')}>
                 <View style={styles.cardsWrapper}>
                 <View style={styles.card}>
                 <View style={styles.cardImgWrapper}>
@@ -82,6 +86,7 @@ return(
                 </View>
                 </View>
                 </View>
+                </TouchableOpacity>
 
                
 

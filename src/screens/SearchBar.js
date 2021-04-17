@@ -22,8 +22,8 @@ const SearchBar = () => {
               alignItems:'center',
               }}>
         
-          <Icon name="search" size={18} />
-          <TextInput placeholder="Search" style={{fontSize: 15, paddingVertical:5, width:90,flex:1}} />
+          <Icon name="search" size={20} />
+          <TextInput placeholder="Search" style={{fontSize: 18, paddingVertical:5, width:90,flex:1}} />
         </View>
       </View>
     </View>

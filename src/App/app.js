@@ -56,7 +56,7 @@ const App = () => {
           name="ProfileScreen"
           component={ProfileScreen}
           options={{
-            tabBarLabel: 'ProfileScreen',
+            tabBarLabel: 'Profile',
             tabBarIcon: ({color}) => (
               <MaterialIcon name="account" color={color} size={30}/>
             ),
