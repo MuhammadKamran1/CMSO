@@ -8,22 +8,22 @@ const SearchBar = () => {
     <View style={{flex: 1}}>
       <View
         style={{
-          height: 60,
+          height: 45,
           backgroundColor: 'black',
           justifyContent: 'center',
-          paddingHorizontal: 15,
+          paddingHorizontal: 20,
         }}>
         <View 
             style={{
-              height: 45, 
+              height: 30, 
               backgroundColor: '#ffffff',
               flexDirection:'row',
-              padding:5,
-              alignItems:'center'
+             // padding:2,
+              alignItems:'center',
               }}>
         
-          <Icon name="search" size={24} />
-          <TextInput placeholder="Search" style={{fontSize: 20, paddingVertical:5, width:90,flex:1}} />
+          <Icon name="search" size={18} />
+          <TextInput placeholder="Search" style={{fontSize: 15, paddingVertical:5, width:90,flex:1}} />
         </View>
       </View>
     </View>
