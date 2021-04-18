@@ -26,6 +26,14 @@ const SwiperImages = () => {
              resizeMode='cover'
           />
         </View>
+
+        <View style={styles.slide}>
+          <Image style={styles.sliderImage}
+             source={require('../assets/Swiper4.jpg')}
+             resizeMode='cover'
+          />
+        </View>
+
       </Swiper>
       </View>
   );
@@ -41,7 +49,7 @@ const styles = StyleSheet.create({
      //marginTop:,
     justifyContent:'center',
     alignSelf:'center',
-    //borderRadius:8,
+    borderRadius:8,
     paddingHorizontal:2,
     paddingVertical:5,
   },
@@ -50,13 +58,13 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent:'center',
     backgroundColor:'transparent',
-    //borderRadius:8,
+    borderRadius:8,
   },
   sliderImage:{
-    height:'100%',
-    width:'100%',
+    height:'90%',
+    width:'90%',
     alignSelf:'center',
-    //borderRadius:8,
+    borderRadius:8,
 
   }
 });

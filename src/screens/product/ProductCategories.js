@@ -9,7 +9,7 @@ import SwiperImages from '../SwiperImages';
 const ProductCategories=()=>{
 
 return(
-  <ScrollView  style={styles.container} >
+  <ScrollView>
     <View>
         <SearchBar />
         

@@ -1,5 +1,5 @@
 import React from 'react'
-import {TouchableOpacity, Alert,View, SafeAreaView, StyleSheet,Image, Button} from 'react-native';
+import {TouchableOpacity, Alert,View, SafeAreaView, StyleSheet,Image, Button, ImageBackground} from 'react-native';
 import {
   Avatar,
   Title,
@@ -22,7 +22,10 @@ const ProfileScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-
+      <ImageBackground
+      source={require('../assets/profileBG.jpg')}
+      style={{width: 360, height: 650 ,flex:1,opacity:0.2}} 
+      />
       <View style={styles.userInfoSection}>
         <View style={{flexDirection: 'row', marginTop: 15}}>
           <Avatar.Image 
@@ -42,15 +45,15 @@ const ProfileScreen = () => {
       <View style={styles.userInfoSection}>
         <View style={styles.row}>
           <Icon name="map-pin" color="black" size={20}/>
-          <Text style={{color:"#777777", marginLeft: 20}}>Lahore, PAKISTAN</Text>
+          <Text style={{color:"black", marginLeft: 20, fontSize:16}}>Lahore, PAKISTAN</Text>
         </View>
         <View style={styles.row}>
           <Icon name="phone" color="black" size={20}/>
-          <Text style={{color:"#777777", marginLeft: 20}}>03044256928</Text>
+          <Text style={{color:"black", marginLeft: 20, fontSize:16}}>03044256928</Text>
         </View>
         <View style={styles.row}>
           <EntypoIcons name="email" color="black" size={20}/>
-          <Text style={{color:"#777777", marginLeft: 20}}>hfarrukh.bscs17seecs@gmail.com</Text>
+          <Text style={{color:"black", marginLeft: 20, fontSize:16}}>hfarrukh.bscs17seecs@gmail.com</Text>
         </View>
       </View>
 
@@ -104,6 +107,7 @@ const ProfileScreen = () => {
 
          
      </View>
+   
     </SafeAreaView>
   );
 };
@@ -112,11 +116,12 @@ export default ProfileScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+  //  flex: 1,
+    //backgroundColor:"#f08080"
   },
   userInfoSection: {
     paddingHorizontal: 30,
-    marginBottom: 25,
+    marginBottom: 20,
   },
   title: {
     fontSize: 24,
@@ -148,15 +153,16 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   menuItem: {
+    
     flexDirection: 'row',
     paddingVertical: 15,
     paddingHorizontal: 30,
   },
   menuItemText: {
-    color: '#777777',
+    color: 'black',
     marginLeft: 20,
-    fontWeight: '600',
-    fontSize: 16,
+    fontWeight: 'bold',
+    fontSize: 18,
     lineHeight: 26,
   },
  

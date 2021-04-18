@@ -11,12 +11,11 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Splash from '../screens/SplashScreen';
-import SpecificProductCategory from '../screens/product/ProductView';
 import ProductCategories from '../screens/product/ProductCategories';
 import ServicesCategories from '../screens/Services/ServicesCategories';
 import Cart from '../screens/CartScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-
+import ProductCategoryView from '../screens/product/ProductCategoryView';
 const App = () => {
   const Stack = createStackNavigator();
   const Tab = createBottomTabNavigator();
@@ -44,8 +43,8 @@ const App = () => {
             ),
           }}></Tab.Screen>
         <Tab.Screen
-          name="Cart"
-          component={Cart}
+          name="ProductCategoryView"
+          component={ProductCategoryView}
           options={{
             tabBarLabel: 'Cart',
             tabBarIcon: ({color}) => (
