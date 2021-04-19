@@ -22,7 +22,6 @@ const App = () => {
 
   const MyTabs = () => {
     return (
-     
       <Tab.Navigator>
         <Tab.Screen
           name="Products"
@@ -30,7 +29,7 @@ const App = () => {
           options={{
             tabBarLabel: 'Products',
             tabBarIcon: ({color}) => (
-              <EntypoIcons name="home" color={color} size={30} /> 
+              <EntypoIcons name="home" color={color} size={30} />
             ),
           }}></Tab.Screen>
         <Tab.Screen
@@ -57,11 +56,10 @@ const App = () => {
           options={{
             tabBarLabel: 'Profile',
             tabBarIcon: ({color}) => (
-              <MaterialIcon name="account" color={color} size={30}/>
+              <MaterialIcon name="account" color={color} size={30} />
             ),
           }}></Tab.Screen>
       </Tab.Navigator>
-     
     );
   };
 
@@ -107,6 +105,4 @@ const styles = StyleSheet.create({
   tabNamesContainer: {
     flexDirection: 'row',
   },
-
-  
 });

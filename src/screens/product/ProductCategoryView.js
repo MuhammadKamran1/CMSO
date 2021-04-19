@@ -1,19 +1,24 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet,ScrollView} from 'react-native';
+import {View, Text, StyleSheet,ScrollView,Image} from 'react-native';
 
 
 const ProductCategoryView=()=>{
 
     return(
-       // <ScrollView>
+       <ScrollView>
           
             <View style={styles.container}>
                 <View style={styles.box}>
-                    <View style={styles.inner}>
-                        <Text>
-                           Box1
-                        </Text>
+                    <View style={styles.imageWrapper}>
+                        <Image
+                           source={require('../../assets/PC3.jpg')}
+                
+                        />
                     </View>
+                     <View>
+                        <Text>Price</Text>
+                     </View>
+                </View>
                 </View>
 
                 <View style={styles.box}>
@@ -32,47 +37,12 @@ const ProductCategoryView=()=>{
                     </View>
                 </View>
 
-                <View style={styles.box}>
-                    <View style={styles.inner}>
-                        <Text>
-                           Box1
-                        </Text>
-                    </View>
-                </View>
-                <View style={styles.box}>
-                    <View style={styles.inner}>
-                        <Text>
-                           Box1
-                        </Text>
-                    </View>
-                </View>
+               
 
-                <View style={styles.box}>
-                    <View style={styles.inner}>
-                        <Text>
-                           Box1
-                        </Text>
-                    </View>
-                </View>
-
-                <View style={styles.box}>
-                    <View style={styles.inner}>
-                        <Text>
-                           Box1
-                        </Text>
-                    </View>
-                </View>
-
-                <View style={styles.box}>
-                    <View style={styles.inner}>
-                        <Text>
-                           Box1
-                        </Text>
-                    </View>
-                </View>
-            </View>
+                
+                
        
-        //</ScrollView>
+        </ScrollView>
 
         
 
@@ -87,7 +57,7 @@ const styles= StyleSheet.create({
 
     container:{
         width:'100%',
-        height:'85%',
+        height:'0%',
         padding:5,
         flexDirection:'row',
         flexWrap:'wrap'
@@ -102,11 +72,16 @@ const styles= StyleSheet.create({
     },
      
     inner:{
-     flex:1,
+     //flex:1,
      backgroundColor:'grey',
      alignItems:'center',
      justifyContent:'center',
-    }
+    },
+
+    imageWrapper:{
+    //   height:100,
+    //   width:80,
+    },
 
 
 
