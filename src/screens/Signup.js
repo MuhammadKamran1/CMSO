@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useContext} from 'react';
 import {
   TouchableOpacity,
   TextInput,
@@ -10,6 +10,9 @@ import {
 } from 'react-native';
 import {useState} from 'react/cjs/react.development';
 import Logo from '../screens/Logo';
+import EntypoIcons from 'react-native-vector-icons/Entypo';
+import login from '../screens/Login';
+import {AuthContext} from '../screens/navigation/AuthProvider';
 
 const Signup = ({navigation}) => {
   const [name, setName] = useState('');
@@ -21,24 +24,28 @@ const Signup = ({navigation}) => {
   const [mobilenumberError, setMobileNumberError] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
+  const [show, setShow] = useState(false);
+  const [visible, setVisible] = useState(true);
 
-  const HandlSignup = () => {
-    if (name.length < 3 || name.length == 0) {
-      setNameError(true);
-    }
+  // const HandlSignup = () => {
+  //   if (name.length < 3 || name.length == 0) {
+  //     setNameError(true);
+  //   }
 
-    if (!(mobilenumber.length == 11)) {
-      setMobileNumberError(true);
-    }
+  //   if (!(mobilenumber.length == 11)) {
+  //     setMobileNumberError(true);
+  //   }
 
-    if (email.length < 7 || email.length == 0) {
-      setEmailError(true);
-    }
+  //   if (email.length < 7 || email.length == 0) {
+  //     setEmailError(true);
+  //   }
 
-    if (password.length < 8) {
-      setPasswordError(true);
-    }
-  };
+  //   if (password.length < 8) {
+  //     setPasswordError(true);
+  //   }
+  // };
+
+  const {signup} = useContext(AuthContext);
 
   return (
     <View style={styles.cointainer1}>
@@ -84,16 +91,30 @@ const Signup = ({navigation}) => {
         <TextInput
           style={styles.inputBox}
           placeholder="Password"
-          secureTextEntry={true}
+          secureTextEntry={visible}
           placeholderTextColor="black"
           value={password}
           onChangeText={setPassword}
         />
+        <TouchableOpacity
+          style={styles.btnEye}
+          onPress={() => {
+            setVisible(!visible);
+            setShow(!show);
+          }}>
+          <EntypoIcons
+            name={show === false ? 'eye' : 'eye-with-line'}
+            size={26}
+            color="black"
+          />
+        </TouchableOpacity>
 
         {passwordError && (
           <Text style={styles.errorText}>Password must have 8 characters</Text>
         )}
-        <TouchableOpacity onPress={HandlSignup} style={styles.button}>
+        <TouchableOpacity
+          onPress={() => signup(mobilenumber,email, password)}
+          style={styles.button}>
           <Text style={styles.buttonText}>Signup</Text>
         </TouchableOpacity>
       </View>
@@ -102,7 +123,7 @@ const Signup = ({navigation}) => {
         <Button
           style={styles.signupButton}
           title="Login"
-          onPress={() => navigation.navigate('MyTabs')}
+          onPress={() => navigation.goBack('login')}
         />
       </View>
     </View>
@@ -126,7 +147,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   signupText: {
-    color: 'rgba(255,255,255,0.6)',
+    color: 'rgba(255,255,255,1)',
     fontSize: 16,
     marginBottom: 6,
   },
@@ -167,5 +188,10 @@ const styles = StyleSheet.create({
     color: 'yellow',
     textAlign: 'left',
     fontSize: 18,
+  },
+  btnEye: {
+    //position: 'absolute',
+    left: 260,
+    top: -50,
   },
 });

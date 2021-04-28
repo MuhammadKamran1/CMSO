@@ -2,19 +2,19 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
 
-const Account=({})=>{
+const Cart=({})=>{
 
     return(
         <View>
             <Text style={style.ProductsCart}>
-                THIS IS AN CART SCREEN
+                THIS IS A CART SCREEN
                 </Text>
         </View>
     );
 }
 
 
-export default Account;
+export default Cart;
 
 const style= StyleSheet.create({
     ProductsCart:{

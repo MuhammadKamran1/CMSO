@@ -2,19 +2,19 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
 
-const Account=({})=>{
+const ProductCategoryView=({})=>{
 
     return(
         <View>
             <Text style={style.ProductsCart}>
-                THIS IS A PRODUCT CHECKOUT SCREEN WITH ADDRESS AND PAYMENT METHOD
+                THIS SCREEN WILL SHOW SINGLE PRODUCT WITH DESCRIPTION AND REVIEW SECTION
                 </Text>
         </View>
     );
 }
 
 
-export default Account;
+export default ProductCategoryView;
 
 const style= StyleSheet.create({
     ProductsCart:{

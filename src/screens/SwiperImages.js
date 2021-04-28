@@ -46,12 +46,12 @@ const styles = StyleSheet.create({
   sliderContainer: {
     height: 200,
     width: '100%',
-    //marginTop:,
+    marginTop:2,
     justifyContent: 'center',
     alignSelf: 'center',
     borderRadius: 8,
     paddingHorizontal: 2,
-    paddingVertical: 5,
+    paddingVertical: 10,
   },
 
   slide: {

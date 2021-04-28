@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import {
   TouchableOpacity,
   Alert,
@@ -21,17 +21,22 @@ import Icon from 'react-native-vector-icons/Feather';
 import FeatherAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import EntypoIcons from 'react-native-vector-icons/Entypo';
-import Ripple from 'react-native-material-ripple';
 
+import {AuthContext} from '../screens/navigation/AuthProvider';
 //import Share from 'react-native-share';
 
+
+
+
 const ProfileScreen = () => {
+
+  const {logout} = useContext(AuthContext);
   return (
     <SafeAreaView style={styles.container}>
-      <ImageBackground
+      {/* <ImageBackground
         source={require('../assets/profileBG.jpg')}
         style={{width: 360, height: 650, flex: 1, opacity: 0.2}}
-      />
+      /> */}
       <View style={styles.userInfoSection}>
         <View style={{flexDirection: 'row', marginTop: 15}}>
           <Avatar.Image source={require('../assets/H.jpg')} size={90} />
@@ -116,7 +121,7 @@ const ProfileScreen = () => {
           <Button
             title="Log Out"
             color="black"
-            onPress={() => Alert.alert('Log 0ut')}
+            onPress={() => logout()}
           />
         </View>
       </View>

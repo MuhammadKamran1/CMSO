@@ -8,62 +8,78 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
-//import { Searchbar } from 'react-native-paper';
-import SearchBar from '../SearchBar';
-import SwiperImages from '../SwiperImages';
+import SearchBar from '../../SearchBar';
 
-const ProductCategories = () => {
+const PSC3 = ({}) => {
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView>
       <View>
-        <SearchBar />
-        <SwiperImages />
-
+       <SearchBar/>
         <Text
           style={{
             alignSelf: 'center',
             fontSize: 18,
             fontWeight: 'bold',
             color: '#333',
-            marginTop: 5,
+            marginTop: 2,
             marginBottom: 5,
           }}>
-          SERVICES CATEGORIES
+          OUTDOOR AND GARDEN
         </Text>
-        <TouchableOpacity onPress={() => Alert.alert('Developers')}>
+        <TouchableOpacity onPress={() => Alert.alert('Hardware')}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
                 <Image
-                  source={require('../../assets/SC1.jpg')}
+                  source={require('../../../assets/PSC1.jpg')}
                   resizeMode="cover"
                   style={styles.cardImg}
                 />
               </View>
               <View style={styles.cardInfo}>
-                <Text style={styles.cardTitle}>Developers</Text>
+                <Text style={styles.cardTitle}>Garden Buildings</Text>
                 <Text style={styles.cardDetails}>
-                  Description of the Service
+                  Description of the Product
                 </Text>
               </View>
             </View>
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Builder and Contractor')}>
+        <TouchableOpacity onPress={() => Alert.alert('Kitchen And Bthroom')}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
                 <Image
-                  source={require('../../assets/SC2.jpg')}
+                  source={require('../../../assets/PSC1.jpg')}
                   resizeMode="cover"
                   style={styles.cardImg}
                 />
               </View>
               <View style={styles.cardInfo}>
-                <Text style={styles.cardTitle}>Builder and Contractor</Text>
+                <Text style={styles.cardTitle}>Garden</Text>
                 <Text style={styles.cardDetails}>
-                  Description of the Service
+                  Description of the Product
+                </Text>
+              </View>
+            </View>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => Alert.alert('Outdoor And Garden')}>
+          <View style={styles.cardsWrapper}>
+            <View style={styles.card}>
+              <View style={styles.cardImgWrapper}>
+                <Image
+                  source={require('../../../assets/PSC1.jpg')}
+                  resizeMode="cover"
+                  style={styles.cardImg}
+                />
+              </View>
+              <View style={styles.cardInfo}>
+                <Text style={styles.cardTitle}>Garden Furniture</Text>
+                <Text style={styles.cardDetails}>
+                  Description of the Product
                 </Text>
               </View>
             </View>
@@ -71,44 +87,22 @@ const ProductCategories = () => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() =>
-            Alert.alert('Consultants, Architect and Interior Designer')
-          }>
+          onPress={() => Alert.alert('Tools and Construction Machinery')}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
                 <Image
-                  source={require('../../assets/SC3.jpg')}
+                  source={require('../../../assets/PSC1.jpg')}
                   resizeMode="cover"
                   style={styles.cardImg}
                 />
               </View>
               <View style={styles.cardInfo}>
                 <Text style={styles.cardTitle}>
-                  Consultants, Architect and Interior Designer
+                  Fencing
                 </Text>
                 <Text style={styles.cardDetails}>
-                  Description of the Service
-                </Text>
-              </View>
-            </View>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={() => Alert.alert('General')}>
-          <View style={styles.cardsWrapper}>
-            <View style={styles.card}>
-              <View style={styles.cardImgWrapper}>
-                <Image
-                  source={require('../../assets/SC4.jpg')}
-                  resizeMode="cover"
-                  style={styles.cardImg}
-                />
-              </View>
-              <View style={styles.cardInfo}>
-                <Text style={styles.cardTitle}>General</Text>
-                <Text style={styles.cardDetails}>
-                  Description of the Service
+                  Description of the Product
                 </Text>
               </View>
             </View>
@@ -119,7 +113,7 @@ const ProductCategories = () => {
   );
 };
 
-export default ProductCategories;
+export default PSC3;
 
 const styles = StyleSheet.create({
   container: {

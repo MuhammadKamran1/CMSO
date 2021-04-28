@@ -13,9 +13,8 @@ import {
 import Logo from '../screens/Logo';
 import EntypoIcons from 'react-native-vector-icons/Entypo';
 import {AuthContext} from '../screens/navigation/AuthProvider';
-import ForgotPassword from '../screens/ForgotPassword';
 
-const Login = ({navigation}) => {
+const ForgotPassword = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState(false);
@@ -44,10 +43,12 @@ const Login = ({navigation}) => {
         style={{width: 360, height: 650, flex: 1, opacity: 1}}
       />
       <Logo />
+     
       <View style={styles.cointainer1}>
+      <Text style={{color:'white', fontSize:24,paddingBottom:20}}>Forgot Password?</Text>
         <TextInput
           style={styles.inputBox}
-          placeholder="Email"
+          placeholder="Enter email"
           placeholderTextColor="black"
           selectionColor="red"
           value={email}
@@ -56,54 +57,19 @@ const Login = ({navigation}) => {
           }}
         />
         {/* { emailError && <Text style={styles.errorText}>There is error</Text>} */}
-        <TextInput
-          style={styles.inputBox}
-          placeholder="Password"
-          secureTextEntry={visible}
-          placeholderTextColor="black"
-          value={password}
-          onChangeText={setPassword}
-        />
-        <TouchableOpacity
-          style={styles.btnEye}
-          onPress={() => {
-            setVisible(!visible);
-            setShow(!show);
-          }}>
-          <EntypoIcons
-            name={show === false ? 'eye' : 'eye-with-line'}
-            size={26}
-            color="black"
-          />
-        </TouchableOpacity>
-        {passwordError && (
-          <Text style={styles.errorText}>Incorrect Password or Email</Text>
-        )}
+       
+   
         <TouchableOpacity
           onPress={()=> login(email , password)}
           style={styles.button}>
-          <Text style={styles.buttonText}>Login</Text>
+          <Text style={styles.buttonText}>Send Email</Text>
         </TouchableOpacity>
       </View>
-      <View>
-        <TouchableOpacity onPress={()=>navigation.navigate('ForgotPassword')}>
-        <Text style={{color:'white',fontSize:18}}>Forgot Password?</Text>
-        </TouchableOpacity>
       </View>
-      <View style={styles.signupTextCont}>
-        <Text style={styles.signupText}>Do not have an account yet? </Text>
-        <Text style={styles.signupButton}>
-          <Button
-            title="Signup"
-            onPress={() => navigation.navigate('SignupScreen')}
-          />
-        </Text>
-      </View>
-    </View>
   );
 };
 
-export default Login;
+export default ForgotPassword;
 
 const styles = StyleSheet.create({
   cointainer: {
@@ -111,24 +77,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingBottom:130
   },
-  signupTextCont: {
-    flexGrow: 1,
-    alignItems: 'flex-end',
-    justifyContent: 'center',
-    paddingVertical: 16,
-    flexDirection: 'row',
-  },
-  signupText: {
-    color: 'rgba(255,255,255,1)',
-    fontSize: 16,
-    marginBottom: 6,
-  },
-  signupButton: {
-    color: '#ffffff',
-    fontSize: 16,
-    fontWeight: '500',
-  },
+ 
   cointainer1: {
     flexGrow: 1,
     justifyContent: 'center',
@@ -156,15 +107,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingVertical: 12,
   },
-
-  errorText: {
-    color: 'yellow',
-    textAlign: 'left',
-    fontSize: 18,
-  },
-  btnEye: {
-    //position: 'absolute',
-    left: 260,
-    top: -50,
-  },
+  
 });

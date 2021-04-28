@@ -8,14 +8,18 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
-import {Searchbar} from 'react-native-paper';
 import SearchBar from '../SearchBar';
-import Icon from 'react-native-vector-icons/Feather';
-//import ProfileScreen from '../ProfileScreen';
 import SwiperImages from '../SwiperImages';
+// import {createStackNavigator} from '@react-navigation/stack';
+import PSC1 from '../product/ProductSubCategories/PSC1';
+// import PSC2 from '../product/ProductSubCategories/PSC2';
 
-const ProductCategories = () => {
+
+
+const ProductCategories = ({navigation}) => {
+
   return (
+
     <ScrollView>
       <View>
         <SearchBar />
@@ -28,12 +32,12 @@ const ProductCategories = () => {
             fontSize: 18,
             fontWeight: 'bold',
             color: '#333',
-            marginTop: 5,
+            marginTop: 2,
             marginBottom: 5,
           }}>
           PRODUCT CATEGORIES
         </Text>
-        <TouchableOpacity onPress={() => Alert.alert('Building and Hardware')}>
+        <TouchableOpacity onPress={() => navigation.navigate('PSC1')}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -53,7 +57,7 @@ const ProductCategories = () => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Kitchen And Bthroom')}>
+        <TouchableOpacity onPress={() => navigation.navigate('PSC2')}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -73,7 +77,7 @@ const ProductCategories = () => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Outdoor And Garden')}>
+        <TouchableOpacity onPress={() => navigation.navigate('PSC3')}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -93,8 +97,7 @@ const ProductCategories = () => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => Alert.alert('Tools and Construction Machinery')}>
+        <TouchableOpacity onPress={() => navigation.navigate('PSC4')}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -116,7 +119,7 @@ const ProductCategories = () => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Lighting and Elecrical')}>
+        <TouchableOpacity onPress={() => navigation.navigate('PSC5')}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -136,8 +139,7 @@ const ProductCategories = () => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => Alert.alert('Painting and Decoration')}>
+        <TouchableOpacity onPress={() => navigation.navigate('PSC6')}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -157,7 +159,7 @@ const ProductCategories = () => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Tiling and Flooring')}>
+        <TouchableOpacity onPress={() => navigation.navigate('PSC7')}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -177,7 +179,7 @@ const ProductCategories = () => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Plumbing')}>
+        <TouchableOpacity onPress={() => navigation.navigate('PSC8')}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -197,7 +199,7 @@ const ProductCategories = () => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Eco Friendly')}>
+        <TouchableOpacity onPress={() => navigation.navigate('PSC9')}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -218,6 +220,7 @@ const ProductCategories = () => {
         </TouchableOpacity>
       </View>
     </ScrollView>
+    //</View>
   );
 };
 
