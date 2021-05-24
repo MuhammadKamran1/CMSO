@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import SearchBar from '../../SearchBar';
 
-const PSC3 = ({}) => {
+const PSC3 = ({navigation}) => {
   return (
     <ScrollView>
       <View>
@@ -26,7 +26,7 @@ const PSC3 = ({}) => {
           }}>
           OUTDOOR AND GARDEN
         </Text>
-        <TouchableOpacity onPress={() => Alert.alert('Hardware')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView', {subCategory: 'Outdoor and Garden/Garden Buildings'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -46,7 +46,7 @@ const PSC3 = ({}) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Kitchen And Bthroom')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView', {subCategory: 'Garden'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -66,7 +66,7 @@ const PSC3 = ({}) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Outdoor And Garden')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView', {subCategory: 'Garden Furniture'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -86,8 +86,7 @@ const PSC3 = ({}) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => Alert.alert('Tools and Construction Machinery')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView', {subCategory: 'Fencing'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>

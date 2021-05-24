@@ -44,6 +44,7 @@ const Login = ({navigation}) => {
         style={{width: 360, height: 650, flex: 1, opacity: 1}}
       />
       <Logo />
+      <Text style={{fontSize:20,color:'white',fontStyle:'italic'}}>Build With Us</Text>
       <View style={styles.cointainer1}>
         <TextInput
           style={styles.inputBox}

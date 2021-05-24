@@ -7,12 +7,16 @@ import {
   Text,
   StyleSheet,
   Button,
+  Alert,
 } from 'react-native';
 import {useState} from 'react/cjs/react.development';
 import Logo from '../screens/Logo';
 import EntypoIcons from 'react-native-vector-icons/Entypo';
 import login from '../screens/Login';
 import {AuthContext} from '../screens/navigation/AuthProvider';
+import database from '@react-native-firebase/database';
+import uuid from 'react-native-uuid';
+
 
 const Signup = ({navigation}) => {
   const [name, setName] = useState('');
@@ -26,24 +30,63 @@ const Signup = ({navigation}) => {
   const [passwordError, setPasswordError] = useState(false);
   const [show, setShow] = useState(false);
   const [visible, setVisible] = useState(true);
+  const[validated, setValidated]=useState(false);
+  const HandlSignup = () => {
+   if (name.length < 3 || name.length == 0) {
+      setNameError(true);
+    }
+    else{
+      setNameError(false);
 
-  // const HandlSignup = () => {
-  //   if (name.length < 3 || name.length == 0) {
-  //     setNameError(true);
-  //   }
+      if (!(mobilenumber.length == 11)) {
+        setMobileNumberError(true);
+        
+      }
+      else{
+        setMobileNumberError(false);
 
-  //   if (!(mobilenumber.length == 11)) {
-  //     setMobileNumberError(true);
-  //   }
+        if (email.length < 7 || email.length == 0) {
+          setEmailError(true);
+        }
+        else{
+          setEmailError(false);
 
-  //   if (email.length < 7 || email.length == 0) {
-  //     setEmailError(true);
-  //   }
+          if (password.length < 8) {
+            setPasswordError(true);
+          }
+          else{
+            setPasswordError(false);
 
-  //   if (password.length < 8) {
-  //     setPasswordError(true);
-  //   }
-  // };
+          setValidated(true)
+          }
+        }
+      }
+    }
+
+  };
+
+  const LocalSignup = () => {
+    HandlSignup()
+    if(validated){
+      signup(email, password)
+      saveUserDb()
+
+    }
+    else{
+       Alert.alert('Signup Failed ','There is some problem')
+    }
+  }
+
+  const saveUserDb=()=>{
+    database()
+    .ref(`/CMSO/Users/${Mobile}/`)
+    .set({
+    Name: name,
+    Mobile: mobilenumber,
+    Email: email
+  })
+    .then(() => console.log('Data set.'));
+  }
 
   const {signup} = useContext(AuthContext);
 
@@ -54,10 +97,13 @@ const Signup = ({navigation}) => {
         style={{width: 360, height: 650, flex: 1}}
       />
       <Logo />
+      <Text style={{fontSize:20,color:'white',fontStyle:'italic'}}>Build With Us</Text>
+
       <View style={styles.cointainer}>
         <TextInput
           style={styles.inputBox}
           placeholder="Full Name"
+          keyboardType='ascii-capable'
           placeholderTextColor="black"
           selectionColor="red"
           value={name}
@@ -81,6 +127,7 @@ const Signup = ({navigation}) => {
         <TextInput
           style={styles.inputBox}
           placeholder="Email"
+          keyboardType='email-address'
           placeholderTextColor="black"
           selectionColor="red"
           value={email}
@@ -110,10 +157,10 @@ const Signup = ({navigation}) => {
         </TouchableOpacity>
 
         {passwordError && (
-          <Text style={styles.errorText}>Password must have 8 characters</Text>
+          <Text style={styles.errorText}>Password must have 6 characters</Text>
         )}
         <TouchableOpacity
-          onPress={() => signup(mobilenumber,email, password)}
+          onPress={LocalSignup}
           style={styles.button}>
           <Text style={styles.buttonText}>Signup</Text>
         </TouchableOpacity>

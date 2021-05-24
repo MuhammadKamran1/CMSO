@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect,useState} from 'react';
 import {
   Image,
   View,
@@ -6,11 +6,10 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Alert,
 } from 'react-native';
 import SearchBar from '../../SearchBar';
 
-const PSC2 = ({}) => {
+const PSC2 = ({navigation}) => {
   return (
     <ScrollView>
       <View>
@@ -26,7 +25,9 @@ const PSC2 = ({}) => {
           }}>
           KITCHEN AND BATHROOM
         </Text>
-        <TouchableOpacity onPress={() => Alert.alert('Hardware')}>
+
+
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView', {subCategory: 'Kitchen and Bathroom /Kitchen'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -46,7 +47,7 @@ const PSC2 = ({}) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Kitchen And Bthroom')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView', {subCategory:'Kitchen and Bathroom/Kitchen Worktops'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -66,7 +67,7 @@ const PSC2 = ({}) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Outdoor And Garden')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView', {subCategory: 'Kitchen and Bathroom/Bathroom'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -86,8 +87,7 @@ const PSC2 = ({}) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => Alert.alert('Tools and Construction Machinery')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView' ,{subCategory:'Kitchen and Bathroom/Showering'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>

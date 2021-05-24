@@ -13,16 +13,3 @@ const Provider = () => {
 };
 
 export default Provider;
-
-// const styles = StyleSheet.create({
-//   cointainer: {
-//     backgroundColor: '#455a64',
-//     flex: 1,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-
-//   tabNamesContainer: {
-//     flexDirection: 'row',
-//   },
-// });

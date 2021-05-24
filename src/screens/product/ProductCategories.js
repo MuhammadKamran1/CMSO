@@ -13,6 +13,7 @@ import SwiperImages from '../SwiperImages';
 // import {createStackNavigator} from '@react-navigation/stack';
 import PSC1 from '../product/ProductSubCategories/PSC1';
 // import PSC2 from '../product/ProductSubCategories/PSC2';
+import Logo from '../Logo';
 
 
 
@@ -21,7 +22,8 @@ const ProductCategories = ({navigation}) => {
   return (
 
     <ScrollView>
-      <View>
+      <View style={{backgroundColor:'#077b8a'}}>
+
         <SearchBar />
 
         <SwiperImages />
@@ -31,7 +33,7 @@ const ProductCategories = ({navigation}) => {
             alignSelf: 'center',
             fontSize: 18,
             fontWeight: 'bold',
-            color: '#333',
+            color: 'white',
             marginTop: 2,
             marginBottom: 5,
           }}>
@@ -68,7 +70,7 @@ const ProductCategories = ({navigation}) => {
                 />
               </View>
               <View style={styles.cardInfo}>
-                <Text style={styles.cardTitle}>Kitchen And Bthroom</Text>
+                <Text style={styles.cardTitle}>Kitchen and Bathroom</Text>
                 <Text style={styles.cardDetails}>
                   Description of the Product
                 </Text>
@@ -88,7 +90,7 @@ const ProductCategories = ({navigation}) => {
                 />
               </View>
               <View style={styles.cardInfo}>
-                <Text style={styles.cardTitle}>Outdoor And Garden</Text>
+                <Text style={styles.cardTitle}>Outdoor and Garden</Text>
                 <Text style={styles.cardDetails}>
                   Description of the Product
                 </Text>
@@ -190,7 +192,7 @@ const ProductCategories = ({navigation}) => {
                 />
               </View>
               <View style={styles.cardInfo}>
-                <Text style={styles.cardTitle}>Plumbing</Text>
+                <Text style={styles.cardTitle}>HVAC and Plumbing</Text>
                 <Text style={styles.cardDetails}>
                   Description of the Product
                 </Text>

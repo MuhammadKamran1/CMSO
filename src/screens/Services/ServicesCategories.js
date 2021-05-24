@@ -15,7 +15,7 @@ import SwiperImages from '../SwiperImages';
 const ProductCategories = () => {
   return (
     <ScrollView style={styles.container}>
-      <View>
+      <View style={{backgroundColor:'#322514'}}>
         <SearchBar />
         <SwiperImages />
 
@@ -24,7 +24,7 @@ const ProductCategories = () => {
             alignSelf: 'center',
             fontSize: 18,
             fontWeight: 'bold',
-            color: '#333',
+            color: 'white',
             marginTop: 5,
             marginBottom: 5,
           }}>

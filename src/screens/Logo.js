@@ -5,12 +5,12 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 class Logo extends Component {
   render() {
     return (
-      <View style={styles.cointainer}>
+      <View row style={styles.cointainer}>
         <Image
-          style={{width: 150, height: 60}}
-          source={require('../assets/log2.jpg')}
+          style={{ width:100,height:60,resizeMode:'stretch'}}
+          source={require('../assets/logo.png')}
         />
-        <Text style={styles.logoText}>Welcome To My App</Text>
+        {/* <Text style={styles.logoText}>Build With Us</Text> */}
       </View>
     );
   }
@@ -20,13 +20,17 @@ export default Logo;
 
 const styles = StyleSheet.create({
   cointainer: {
-    flexGrow: 1,
-    justifyContent: 'flex-end',
+    //flexGrow: 1,
+    justifyContent:'center',
     alignItems: 'center',
+    flexDirection:'row',
+    backgroundColor:'white'
   },
   logoText: {
-    marginVertical: 15,
     fontSize: 18,
     color: 'rgba(255,255,255,0.7)',
+    paddingLeft:20,
+    //paddingRight:30,
+    //justifyContent:'center'
   },
 });

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect,useState} from 'react';
 import {
   Image,
   View,
@@ -6,11 +6,14 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Alert,
 } from 'react-native';
 import SearchBar from '../../SearchBar';
 
-const PSC1 = ({}) => {
+// import database from '@react-native-firebase/database';
+
+
+const PSC1 = ({navigation}) => {
+
   return (
     <ScrollView>
       <View>
@@ -26,7 +29,7 @@ const PSC1 = ({}) => {
           }}>
           BUILDING AND HADWARE
         </Text>
-        <TouchableOpacity onPress={() => Alert.alert('Hardware')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView', {subCategory: 'Building and Hardware/Door and Windows'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -46,7 +49,7 @@ const PSC1 = ({}) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Kitchen And Bthroom')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView', {subCategory: 'Building and Hardware/Timber and Sheet Material'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -66,7 +69,7 @@ const PSC1 = ({}) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Outdoor And Garden')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView', {subCategory: 'Building and Hardware/Building Supplies'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -86,8 +89,7 @@ const PSC1 = ({}) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => Alert.alert('Tools and Construction Machinery')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView', {subCategory: 'Building and Hardware/Hardware'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>

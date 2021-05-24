@@ -11,7 +11,9 @@ import Icon from 'react-native-vector-icons/Feather';
 
 import ProductCategories from '../product/ProductCategories';
 import ServicesCategories from '../Services/ServicesCategories';
+import SubCategoryView from'../product/SubCategoryView';
 import ProfileScreen from '../ProfileScreen';
+import SingleProduct from '../product/SingleProduct';
 import Cart from '../CartScreen';
 import PSC1 from '../product/ProductSubCategories/PSC1';
 import PSC2 from '../product/ProductSubCategories/PSC2';
@@ -79,6 +81,21 @@ const SubCategoryStack =() =>{
             <Stack1.Screen
         name="PSC9"
         component={PSC9}
+        options={{headerShown: false}}
+      />
+       <Stack1.Screen
+        name="SubCategoryView"
+        component={SubCategoryView}
+        options={{headerShown: false}}
+      />
+      <Stack1.Screen
+        name="SingleProduct"
+        component={SingleProduct}
+        options={{headerShown: false}}
+      />
+      <Stack1.Screen
+        name="Cart"
+        component={Cart}
         options={{headerShown: false}}
       />
     </Stack1.Navigator>
@@ -154,14 +171,4 @@ const AppStack = () => {
 export default AppStack;
 
 
-  // const styles = StyleSheet.create({
-  //   // cointainer: {
-  //   //   backgroundColor: '#455a64',
-  //   //   flex: 1,
-  //   //   alignItems: 'center',
-  //   //   justifyContent: 'center',
-  //   // },
-  //   tabNamesContainer: {
-  //     flexDirection: 'row',
-  //   },
-  // });
+  

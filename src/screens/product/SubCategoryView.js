@@ -1,67 +1,131 @@
-import React, {useState} from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { Searchbar } from 'react-native-paper';
+import React, {useState, useEffect} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import SearchBar from '../SearchBar';
+//import * as firebase from 'firebase';
+import database from '@react-native-firebase/database';
 
-const ProductCategoryView=()=>{
+const SubCategoryView = ({route, navigation}) => {
+  const [data, setData] = useState({});
 
-  const[people, setPeople]=useState([
+  useEffect(async () => {
+    console.log('HERE I AM');
+    console.log('This is the value of the route ', route?.params?.subCategory);
+    database()
+      .ref(`CMSO/Product Categories/${route?.params?.subCategory}`)
+      .on('value', snapshot => {
+        setData(snapshot.val());
+        console.log('This is my snapshot value ', snapshot.val());
+      });
+  }, []);
 
- {name:"Kamran", key:'1'  },
- {name:"ali", key:'2'  },
- {name:"umer", key:'3'  },
-  ]);
+  return (
+    <ScrollView style={{flex: 1, backgroundColor: 'white'}}>
+      <SearchBar />
 
+      <View style={styles.container}>
+        {data !== null &&
+          Object.keys(data).map((key, index) => {
+            return (
+              <View
+                style={{
+                  flexDirection: 'row',
+                  flexWrap: 'wrap',
+                  paddingHorizontal:8,
+                }}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('SingleProduct', {
+                      subCategory: route?.params?.subCategory + '/' + key + '/',
+                    });
+                  }}>
+                  <View key={index} style={styles.box}>
+                    <Image
+                      style={styles.Images}
+                      source={{uri: data[key].Image}}
+                    />
+                    <View>
+                      <Text>{data[key].Name}</Text>
+                    </View>
+                    <View style={styles.inner}>
+                      <Text> Price {data[key].Price}</Text>
+                    </View>
+                  </View>
+                </TouchableOpacity>
 
-    return(
-      
-      <View>
-          <SearchBar/>
-         <View style={styles.container}>
-           
-           <FlatList
-             data={people}
-             renderItem={({item})=>(
-              <View style={styles.box}>
-              <View style={styles.inner}>
-                <Text>{item.name}</Text>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('SingleProduct', {
+                      subCategory: route?.params?.subCategory + '/' + key + '/',
+                    });
+                  }}>
+                  <View key={index} style={styles.box}>
+                    <Image
+                      style={styles.Images}
+                      source={{uri: data[key].Image}}
+                    />
+                    <View>
+                      <Text>{data[key].Name}</Text>
+                    </View>
+                    <View style={styles.inner}>
+                      <Text> Price {data[key].Price}</Text>
+                    </View>
+                  </View>
+                </TouchableOpacity>
               </View>
-              </View>
-             )}
-          
-            />
-
+            );
+          })}
       </View>
-      </View>
-    );
-  }
+    </ScrollView>
+  );
+};
 
-  export default ProductCategoryView;
+export default SubCategoryView;
 
-  const styles = StyleSheet.create({
-
-  container:{
-   width:'100%',
-   height:'85%',
-   padding:5,
-   flexDirection:'row',
-   flexWrap:'wrap'
-
-  },
-
-  box:{
-   width:'50%',
-   height:'50%',
-   padding:5
+const styles = StyleSheet.create({
+  container: {
+    //width: '100%',
+    //height: '85%',
+    padding: 5,
+    //flexWrap: 'wrap',
+    //flexDirection:'row',
+    flex: 1,
+    borderColor:'orange',
 
   },
 
-  inner:{
-    flex:1,
-    alignItems:'center',
-    justifyContent:'center',
-    backgroundColor:"grey"
+  box: {
+    //width: '50%',
+    height: 200,
+    padding: 6,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    borderColor: 'black',
+    flex: 1,
+    margin: 2,
+    borderWidth:0.5
   },
 
-  })
+  inner: {
+    justifyContent: 'center',
+    backgroundColor: '#1e90ff',
+    height: 25,
+    width: 162,
+    position: 'absolute',
+    bottom: 0,
+    
+
+  },
+
+  Images: {
+    width: 150,
+    height: 150,
+    //resizeMode:'stretch'
+  },
+});

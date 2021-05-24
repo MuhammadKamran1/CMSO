@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import SearchBar from '../../SearchBar';
 
-const PSC8 = ({}) => {
+const PSC8 = ({navigation}) => {
   return (
     <ScrollView>
       <View>
@@ -24,9 +24,9 @@ const PSC8 = ({}) => {
             marginTop: 2,
             marginBottom: 5,
           }}>
-          HOME AND BEDROOM
+          HVAC AND PLUMBING
         </Text>
-        <TouchableOpacity onPress={() => Alert.alert('Hardware')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView' ,{subCategory:'Cental Cooling'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -37,7 +37,7 @@ const PSC8 = ({}) => {
                 />
               </View>
               <View style={styles.cardInfo}>
-                <Text style={styles.cardTitle}>Bedroom Furniture</Text>
+                <Text style={styles.cardTitle}>Cental Cooling </Text>
                 <Text style={styles.cardDetails}>
                   Description of the Product
                 </Text>
@@ -46,7 +46,7 @@ const PSC8 = ({}) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Kitchen And Bthroom')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView' ,{subCategory:'Central Heating'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -57,7 +57,7 @@ const PSC8 = ({}) => {
                 />
               </View>
               <View style={styles.cardInfo}>
-                <Text style={styles.cardTitle}>Storage and Shelving</Text>
+                <Text style={styles.cardTitle}>Central Heating</Text>
                 <Text style={styles.cardDetails}>
                   Description of the Product
                 </Text>
@@ -66,7 +66,7 @@ const PSC8 = ({}) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Outdoor And Garden')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView' ,{subCategory:'Plumbing'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -77,7 +77,7 @@ const PSC8 = ({}) => {
                 />
               </View>
               <View style={styles.cardInfo}>
-                <Text style={styles.cardTitle}>Appliances</Text>
+                <Text style={styles.cardTitle}>Plumbing</Text>
                 <Text style={styles.cardDetails}>
                   Description of the Product
                 </Text>
@@ -86,6 +86,7 @@ const PSC8 = ({}) => {
           </View>
         </TouchableOpacity>
 
+        
         
       </View>
     </ScrollView>

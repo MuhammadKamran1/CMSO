@@ -56,9 +56,7 @@ const ForgotPassword = ({navigation}) => {
             setEmail(text);
           }}
         />
-        {/* { emailError && <Text style={styles.errorText}>There is error</Text>} */}
        
-   
         <TouchableOpacity
           onPress={()=> login(email , password)}
           style={styles.button}>

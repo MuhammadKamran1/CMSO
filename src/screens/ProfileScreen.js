@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{useContext, useEffect,useState} from 'react';
 import {
   TouchableOpacity,
   Alert,
@@ -23,23 +23,35 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import EntypoIcons from 'react-native-vector-icons/Entypo';
 
 import {AuthContext} from '../screens/navigation/AuthProvider';
-//import Share from 'react-native-share';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import database from '@react-native-firebase/database';
 
 
 
 const ProfileScreen = () => {
 
+  const [data, setData] = useState('');
+  
   const {logout} = useContext(AuthContext);
+  useEffect(()=>{
+    fetchData()
+  },[])
+
+  const fetchData= async () =>{
+    const mobilenumber = await AsyncStorage.getItem('Mobile')
+    database()
+      .ref(`CMSO/Users/${mobilenumber}`)
+      .on('value', snapshot => {
+        setData(snapshot.val());
+        console.log('This is my snapshot value', snapshot.val());
+      });
+  }
   return (
     <SafeAreaView style={styles.container}>
-      {/* <ImageBackground
-        source={require('../assets/profileBG.jpg')}
-        style={{width: 360, height: 650, flex: 1, opacity: 0.2}}
-      /> */}
+      
       <View style={styles.userInfoSection}>
         <View style={{flexDirection: 'row', marginTop: 15}}>
-          <Avatar.Image source={require('../assets/H.jpg')} size={90} />
+          <Avatar.Image source={require('../assets/profilepic.png')} size={90} />
           <View style={{marginLeft: 20}}>
             <Title
               style={[
@@ -49,7 +61,7 @@ const ProfileScreen = () => {
                   marginBottom: 5,
                 },
               ]}>
-              HUZAIFA{' '}
+              {data.Name}{' '}
             </Title>
             <Caption style={styles.caption}>@HUZAIFA</Caption>
           </View>
@@ -66,13 +78,13 @@ const ProfileScreen = () => {
         <View style={styles.row}>
           <Icon name="phone" color="black" size={20} />
           <Text style={{color: 'black', marginLeft: 20, fontSize: 16}}>
-            03044256928
+         {data.Mobile}
           </Text>
         </View>
         <View style={styles.row}>
           <EntypoIcons name="email" color="black" size={20} />
           <Text style={{color: 'black', marginLeft: 20, fontSize: 16}}>
-            hfarrukh.bscs17seecs@gmail.com
+            {data.Email}
           </Text>
         </View>
       </View>

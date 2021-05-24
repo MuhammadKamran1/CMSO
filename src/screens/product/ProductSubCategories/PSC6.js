@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import SearchBar from '../../SearchBar';
 
-const PSC6 = ({}) => {
+const PSC6 = ({navigation}) => {
   return (
     <ScrollView>
       <View>
@@ -26,7 +26,7 @@ const PSC6 = ({}) => {
           }}>
           PAINTING AND DECORATION
         </Text>
-        <TouchableOpacity onPress={() => Alert.alert('Hardware')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView' ,{subCategory:'Decoration Tools and Supplies'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -46,7 +46,7 @@ const PSC6 = ({}) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Kitchen And Bthroom')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView' ,{subCategory:'Paint and Wood Treatment'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>

@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import SearchBar from '../../SearchBar';
 
-const PSC7 = ({}) => {
+const PSC7 = ({navigation}) => {
   return (
     <ScrollView>
       <View>
@@ -26,7 +26,7 @@ const PSC7 = ({}) => {
           }}>
            TILING AND FLOORING
         </Text>
-        <TouchableOpacity onPress={() => Alert.alert('Hardware')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView' ,{subCategory:'Flooring'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -46,7 +46,7 @@ const PSC7 = ({}) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Kitchen And Bthroom')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView' ,{subCategory:'Tiles'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -66,7 +66,7 @@ const PSC7 = ({}) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Outdoor And Garden')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView' ,{subCategory:'Tools'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -76,8 +76,8 @@ const PSC7 = ({}) => {
                   style={styles.cardImg}
                 />
               </View>
-              <View style={styles.cardInfo}>
-                <Text style={styles.cardTitle}>Tools</Text>
+              <View style={styles.cardInfo}>Tools
+                <Text style={styles.cardTitle}></Text>
                 <Text style={styles.cardDetails}>
                   Description of the Product
                 </Text>

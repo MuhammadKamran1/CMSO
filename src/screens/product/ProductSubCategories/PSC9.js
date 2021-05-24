@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import SearchBar from '../../SearchBar';
 
-const PSC9 = ({}) => {
+const PSC9 = ({navigation}) => {
   return (
     <ScrollView>
       <View>
@@ -26,7 +26,7 @@ const PSC9 = ({}) => {
           }}>
           ECO FRIENDLY
         </Text>
-        <TouchableOpacity onPress={() => Alert.alert('Hardware')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('SubCategoryView' ,{subCategory:'Eco Friendly Products'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
