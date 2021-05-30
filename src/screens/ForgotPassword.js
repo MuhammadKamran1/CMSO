@@ -23,7 +23,7 @@ const ForgotPassword = ({navigation}) => {
   
   const [visible, setVisible] = useState(true);
 
-  const {login} = useContext(AuthContext);
+  const {forgotPassword} = useContext(AuthContext);
 
   // const handleLogin = () => {
   //   if (email.length < 4 || email.length == 0) {
@@ -58,7 +58,7 @@ const ForgotPassword = ({navigation}) => {
         />
        
         <TouchableOpacity
-          onPress={()=> login(email , password)}
+          onPress={()=> forgotPassword(email)}
           style={styles.button}>
           <Text style={styles.buttonText}>Send Email</Text>
         </TouchableOpacity>

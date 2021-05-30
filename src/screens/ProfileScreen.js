@@ -8,6 +8,7 @@ import {
   Image,
   Button,
   ImageBackground,
+  Share
 } from 'react-native';
 import {
   Avatar,
@@ -25,6 +26,9 @@ import EntypoIcons from 'react-native-vector-icons/Entypo';
 import {AuthContext} from '../screens/navigation/AuthProvider';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import database from '@react-native-firebase/database';
+import { Linking, Platform } from 'react-native';
+import { SocialIcon } from 'react-native-elements'
+
 
 
 
@@ -38,14 +42,86 @@ const ProfileScreen = () => {
   },[])
 
   const fetchData= async () =>{
-    const mobilenumber = await AsyncStorage.getItem('Mobile')
+    const Mobile = await AsyncStorage.getItem('Mobile')
     database()
-      .ref(`CMSO/Users/${mobilenumber}`)
+      .ref(`CMSO/Users/${Mobile}`)
       .on('value', snapshot => {
         setData(snapshot.val());
         console.log('This is my snapshot value', snapshot.val());
-      });
+      }); 
   }
+
+  // const myCustomShare= async()=>{
+  //   const shareOptions ={
+  //     message:'This is the Text message for my CMSO App',
+  //   }
+  //   try{
+  //     const shareResponse = await Share.Open(shareOptions);
+  //     console.log(JSON.stringify(shareResponse));
+  //   } catch(e){
+  //     console.log(e)
+  //   }
+  // };
+
+
+   const makeCall = phone => {
+  console.log('callNumber ----> ', data.Call);
+  let phoneNumber = phone;
+  if (Platform.OS !== 'android') {
+    phoneNumber = `telprompt:${data.Call}`;
+  }
+  else  {
+    phoneNumber = `tel:03002566357`;
+  }
+  Linking.canOpenURL(phoneNumber)
+  .then(supported => {
+    if (!supported) {
+      Alert.alert('Phone number is not available');
+    } else {
+      return Linking.openURL(phoneNumber);
+    }
+  })
+  .catch(err => console.log(err));
+};
+  
+    const onShare = async () => {
+      try {
+        const result = await Share.share({
+          message:
+            'An online marketplace for construction material, relevant machinery and labour which will facilitate the service providers and end user in the most cost effective and efficient manner. The application would assist the users by providing diverse products inventory, safe online payment system, delivery facility, experts advice and skilled labour using Artificial Intelligence tools and techniques.',
+            
+        });
+        if (result.action === Share.sharedAction) {
+          if (result.activityType) { 
+            // shared with activity type of result.activityType
+          } else {
+            // shared
+          }
+        } else if (result.action === Share.dismissedAction) {
+          // dismissed
+        }
+      } catch (error) {
+        alert(error.message);
+      }
+    };
+
+const fb=()=>{
+    Linking
+  .openURL('https://web.facebook.com/?_rdc=1&_rdr')
+  .catch(err => console.error('Error', err));
+}
+
+const instagram=()=>{
+  Linking
+.openURL('https://www.instagram.com/')
+.catch(err => console.error('Error', err));
+}
+
+const twitter=()=>{
+  Linking
+.openURL('https://twitter.com/Twitter?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor')
+.catch(err => console.error('Error', err));
+}
   return (
     <SafeAreaView style={styles.container}>
       
@@ -61,9 +137,8 @@ const ProfileScreen = () => {
                   marginBottom: 5,
                 },
               ]}>
-              {data.Name}{' '}
+              <Text>{data.Name}</Text>
             </Title>
-            <Caption style={styles.caption}>@HUZAIFA</Caption>
           </View>
         </View>
       </View>
@@ -78,7 +153,7 @@ const ProfileScreen = () => {
         <View style={styles.row}>
           <Icon name="phone" color="black" size={20} />
           <Text style={{color: 'black', marginLeft: 20, fontSize: 16}}>
-         {data.Mobile}
+        {data.Mobile}
           </Text>
         </View>
         <View style={styles.row}>
@@ -89,23 +164,7 @@ const ProfileScreen = () => {
         </View>
       </View>
 
-      <View style={styles.infoBoxWrapper}>
-        <View
-          style={[
-            styles.infoBox,
-            {
-              borderRightColor: '#dddddd',
-              borderRightWidth: 1,
-            },
-          ]}>
-          <Title>20000</Title>
-          <Caption>Wallet</Caption>
-        </View>
-        <View style={styles.infoBox}>
-          <Title>12</Title>
-          <Caption>Orders</Caption>
-        </View>
-      </View>
+      
 
       <View style={styles.menuWrapper}>
         <View style={styles.menuItem}>
@@ -117,14 +176,14 @@ const ProfileScreen = () => {
 
         <View style={styles.menuItem}>
           <FeatherAwesomeIcon name="share" color="black" size={25} />
-          <TouchableOpacity onPress={() => Alert.alert('Tell Your Friends')}>
+          <TouchableOpacity onPress={onShare}>
             <Text style={styles.menuItemText}>Tell Your Friends</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.menuItem}>
           <MaterialIcons name="support-agent" color="black" size={25} />
-          <TouchableOpacity onPress={() => Alert.alert('Support')}>
+          <TouchableOpacity onPress={makeCall}>
             <Text style={styles.menuItemText}>Support</Text>
           </TouchableOpacity>
         </View>
@@ -135,6 +194,44 @@ const ProfileScreen = () => {
             color="black"
             onPress={() => logout()}
           />
+        </View>
+        
+          <Text style={{fontSize:17,marginHorizontal:12,paddingTop:15}}>Follow Us On </Text>
+          <View style={{flexDirection:'row', justifyContent:'space-around', paddingTop:10}}>
+
+           <TouchableOpacity 
+           onPress={fb}
+           >
+           
+          <FeatherAwesomeIcon name="facebook-square" color="blue" size={50} />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={instagram}>
+          <FeatherAwesomeIcon name="instagram" color="red" size={50} />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={twitter}>
+          <FeatherAwesomeIcon name="twitter-square" color="skyblue" size={50} />
+          </TouchableOpacity> 
+
+          {/* <SocialIcon
+          type='facebook'
+          raised={true}
+          openURL="https://reactnativeelements.com/docs/social_icon/"
+          />
+          <SocialIcon
+           type='instagram'
+           iconColor='red'
+          />
+
+          <SocialIcon
+           
+           type='twitter'
+          /> */}
+
+
+
+
         </View>
       </View>
     </SafeAreaView>
@@ -194,3 +291,23 @@ const styles = StyleSheet.create({
     lineHeight: 26,
   },
 });
+
+
+
+{/* <View style={styles.infoBoxWrapper}>
+        <View
+          style={[
+            styles.infoBox,
+            {
+              borderRightColor: '#dddddd',
+              borderRightWidth: 1,
+            },
+          ]}>
+          <Title>20000</Title>
+          <Caption>Wallet</Caption>
+        </View>
+        <View style={styles.infoBox}>
+          <Title>12</Title>
+          <Caption>Orders</Caption>
+        </View>
+      </View> */}

@@ -14,7 +14,9 @@ import ServicesCategories from '../Services/ServicesCategories';
 import SubCategoryView from'../product/SubCategoryView';
 import ProfileScreen from '../ProfileScreen';
 import SingleProduct from '../product/SingleProduct';
+import ServiceCategoryDetails from '../Services/ServiceCategoryDetails';
 import Cart from '../CartScreen';
+import CheckoutScreen from '../CheckoutScreen';
 import PSC1 from '../product/ProductSubCategories/PSC1';
 import PSC2 from '../product/ProductSubCategories/PSC2';
 import PSC3 from '../product/ProductSubCategories/PSC3';
@@ -98,7 +100,37 @@ const SubCategoryStack =() =>{
         component={Cart}
         options={{headerShown: false}}
       />
+      <Stack1.Screen
+        name='CheckoutScreen'
+        component={CheckoutScreen}
+        options={{headerShown: false}}
+        />
+
     </Stack1.Navigator>
+  
+  )
+
+}
+
+const Stack2= createStackNavigator();
+
+
+const SubServicesCategories =() =>{
+  return(
+
+    <Stack2.Navigator>
+      <Stack2.Screen
+        name="Products"
+        component={ServicesCategories}
+        options={{headerShown: false}}
+      />
+      <Stack2.Screen
+        name='ServiceCategoryDetails'
+        component={ServiceCategoryDetails}
+        options={{headerShown: false}}
+      />
+    
+    </Stack2.Navigator>
 
     
   )
@@ -125,7 +157,7 @@ const AppStack = () => {
 
         <Tab.Screen
           name="Services"
-          component={ServicesCategories}
+          component={SubServicesCategories}
           options={{
             tabBarLabel: 'Services',
             tabBarIcon: ({color}) => (

@@ -6,10 +6,12 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  FlatList
 } from 'react-native';
 import SearchBar from '../SearchBar';
 //import * as firebase from 'firebase';
 import database from '@react-native-firebase/database';
+
 
 const SubCategoryView = ({route, navigation}) => {
   const [data, setData] = useState({});
@@ -21,68 +23,106 @@ const SubCategoryView = ({route, navigation}) => {
       .ref(`CMSO/Product Categories/${route?.params?.subCategory}`)
       .on('value', snapshot => {
         setData(snapshot.val());
-        console.log('This is my snapshot value ', snapshot.val());
+        console.log('This is my snapshot value ', Object.keys(snapshot.val()));
       });
   }, []);
-
+    const renderItem =({item, index})=>{
+      console.log('this is render item ',data)
+      console.log('this is key', item)
+      return (
+            <View
+              style={{
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                paddingHorizontal:8,
+              }}>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('SingleProduct', {
+                    subCategory: route?.params?.subCategory + '/' + item + '/',
+                  });
+                }}>
+                <View key={index} style={styles.box}>
+                  <Image
+                    style={styles.Images}
+                    source={{uri: data[item].Image}}
+                  />
+                  <View>
+                    <Text>{data[item].Name}</Text>
+                  </View>
+                  <View style={styles.inner}>
+                    <Text> Price {data[item].Price}</Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
+              </View>
+       )
+     }
   return (
-    <ScrollView style={{flex: 1, backgroundColor: 'white'}}>
+    <View style={{flex: 1, backgroundColor: 'white'}}>
       <SearchBar />
 
       <View style={styles.container}>
         {data !== null &&
-          Object.keys(data).map((key, index) => {
-            return (
-              <View
-                style={{
-                  flexDirection: 'row',
-                  flexWrap: 'wrap',
-                  paddingHorizontal:8,
-                }}>
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate('SingleProduct', {
-                      subCategory: route?.params?.subCategory + '/' + key + '/',
-                    });
-                  }}>
-                  <View key={index} style={styles.box}>
-                    <Image
-                      style={styles.Images}
-                      source={{uri: data[key].Image}}
-                    />
-                    <View>
-                      <Text>{data[key].Name}</Text>
-                    </View>
-                    <View style={styles.inner}>
-                      <Text> Price {data[key].Price}</Text>
-                    </View>
-                  </View>
-                </TouchableOpacity>
+        <FlatList
+          keyExtractor={(item)=>item}
+          numColumns={2}
+          data ={ Object.keys(data)}
+          renderItem={renderItem}
+        />
+          // Object.keys(data).map((key, index) => {
+          //   return (
+          //     <View
+          //       style={{
+          //         flexDirection: 'row',
+          //         flexWrap: 'wrap',
+          //         paddingHorizontal:8,
+          //       }}>
+          //       <TouchableOpacity
+          //         onPress={() => {
+          //           navigation.navigate('SingleProduct', {
+          //             subCategory: route?.params?.subCategory + '/' + key + '/',
+          //           });
+          //         }}>
+          //         <View key={index} style={styles.box}>
+          //           <Image
+          //             style={styles.Images}
+          //             source={{uri: data[key].Image}}
+          //           />
+          //           <View>
+          //             <Text>{data[key].Name}</Text>
+          //           </View>
+          //           <View style={styles.inner}>
+          //             <Text> Price {data[key].Price}</Text>
+          //           </View>
+          //         </View>
+          //       </TouchableOpacity>
 
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate('SingleProduct', {
-                      subCategory: route?.params?.subCategory + '/' + key + '/',
-                    });
-                  }}>
-                  <View key={index} style={styles.box}>
-                    <Image
-                      style={styles.Images}
-                      source={{uri: data[key].Image}}
-                    />
-                    <View>
-                      <Text>{data[key].Name}</Text>
-                    </View>
-                    <View style={styles.inner}>
-                      <Text> Price {data[key].Price}</Text>
-                    </View>
-                  </View>
-                </TouchableOpacity>
-              </View>
-            );
-          })}
+          //       <TouchableOpacity
+          //         onPress={() => {
+          //           navigation.navigate('SingleProduct', {
+          //             subCategory: route?.params?.subCategory + '/' + key + '/',
+          //           });
+          //         }}>
+          //         <View key={index} style={styles.box}>
+          //           <Image
+          //             style={styles.Images}
+          //             source={{uri: data[key].Image}}
+          //           />
+          //           <View>
+          //             <Text>{data[key].Name}</Text>
+          //           </View>
+          //           <View style={styles.inner}>
+          //             <Text> Price {data[key].Price}</Text>
+          //           </View>
+          //         </View>
+          //       </TouchableOpacity>
+          //     </View>
+          //  );
+          // })
+           }
       </View>
-    </ScrollView>
+    </View>
   );
 };
 

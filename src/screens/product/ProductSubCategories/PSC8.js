@@ -37,7 +37,7 @@ const PSC8 = ({navigation}) => {
                 />
               </View>
               <View style={styles.cardInfo}>
-                <Text style={styles.cardTitle}>Cental Cooling </Text>
+                <Text style={styles.cardTitle}>Central Cooling </Text>
                 <Text style={styles.cardDetails}>
                   Description of the Product
                 </Text>

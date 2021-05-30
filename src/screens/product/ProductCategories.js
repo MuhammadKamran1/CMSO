@@ -270,6 +270,7 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontWeight: 'bold',
+    fontSize:16
   },
   cardDetails: {
     fontSize: 12,

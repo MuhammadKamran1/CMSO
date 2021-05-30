@@ -16,7 +16,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import FeatherAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import Logo from '../screens/Logo';
 
-const Cart = () => {
+const Cart = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Logo/>
@@ -37,6 +37,7 @@ const Cart = () => {
               <Text style={styles.productName}>
                 Hardware Product
               </Text>
+              <Text style={{fontSize:17,paddingTop:4}}>Qty</Text>
             </View>
             <View
               style={styles.container3}>
@@ -52,6 +53,9 @@ const Cart = () => {
             </View>
           </View>
         </View>
+
+
+        
 
         
         <View style={{height:10}}/>
@@ -76,7 +80,7 @@ const Cart = () => {
     
       <TouchableOpacity
         style={styles.checkoutButton}
-        onPress={()=>Alert.alert('CHECKOUT')}> 
+        onPress={()=>navigation.navigate('CheckoutScreen')}> 
         <Text
           style={styles.checkoutText}>
           CHECKOUT
@@ -167,3 +171,16 @@ const styles = StyleSheet.create({
   color: 'black',
  }
 });
+
+
+
+
+// const saveUserDb=()=>{
+//   database()
+//   .ref(`/CMSO/Users/${mobilenumber}/`)
+//   .set({
+//   Cart: ,
+  
+// })
+//   .then(() => console.log('Data set.'));
+// }

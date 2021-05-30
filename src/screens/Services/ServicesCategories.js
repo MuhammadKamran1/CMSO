@@ -11,8 +11,9 @@ import {
 //import { Searchbar } from 'react-native-paper';
 import SearchBar from '../SearchBar';
 import SwiperImages from '../SwiperImages';
+import ServiceCategoryDetails from '../Services/ServiceCategoryDetails';
 
-const ProductCategories = () => {
+const ServiceCategories = ({navigation}) => {
   return (
     <ScrollView style={styles.container}>
       <View style={{backgroundColor:'#322514'}}>
@@ -30,7 +31,7 @@ const ProductCategories = () => {
           }}>
           SERVICES CATEGORIES
         </Text>
-        <TouchableOpacity onPress={() => Alert.alert('Developers')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('ServiceCategoryDetails', {subCategory: 'Developers'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -42,15 +43,13 @@ const ProductCategories = () => {
               </View>
               <View style={styles.cardInfo}>
                 <Text style={styles.cardTitle}>Developers</Text>
-                <Text style={styles.cardDetails}>
-                  Description of the Service
-                </Text>
+                
               </View>
             </View>
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('Builder and Contractor')}>
+        <TouchableOpacity onPress={() => {navigation.navigate('ServiceCategoryDetails', {subCategory: 'Builders and Contractors'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -62,18 +61,13 @@ const ProductCategories = () => {
               </View>
               <View style={styles.cardInfo}>
                 <Text style={styles.cardTitle}>Builder and Contractor</Text>
-                <Text style={styles.cardDetails}>
-                  Description of the Service
-                </Text>
+                
               </View>
             </View>
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() =>
-            Alert.alert('Consultants, Architect and Interior Designer')
-          }>
+        <TouchableOpacity onPress={() => {navigation.navigate('ServiceCategoryDetails', {subCategory: 'Consultants'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
@@ -87,29 +81,116 @@ const ProductCategories = () => {
                 <Text style={styles.cardTitle}>
                   Consultants, Architect and Interior Designer
                 </Text>
-                <Text style={styles.cardDetails}>
-                  Description of the Service
-                </Text>
+                
               </View>
             </View>
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => Alert.alert('General')}>
+       
+        <TouchableOpacity onPress={() => {navigation.navigate('ServiceCategoryDetails', {subCategory: 'Plumber'})}}>
           <View style={styles.cardsWrapper}>
             <View style={styles.card}>
               <View style={styles.cardImgWrapper}>
                 <Image
-                  source={require('../../assets/SC4.jpg')}
+                  source={require('../../assets/plumber.jpg')}
                   resizeMode="cover"
                   style={styles.cardImg}
                 />
               </View>
               <View style={styles.cardInfo}>
-                <Text style={styles.cardTitle}>General</Text>
-                <Text style={styles.cardDetails}>
-                  Description of the Service
-                </Text>
+                <Text style={styles.cardTitle}>Plumber</Text>
+                
+              </View>
+            </View>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => {navigation.navigate('ServiceCategoryDetails', {subCategory: 'Electrician'})}}>
+          <View style={styles.cardsWrapper}>
+            <View style={styles.card}>
+              <View style={styles.cardImgWrapper}>
+                <Image
+                  source={require('../../assets/electrician.jpg')}
+                  resizeMode="cover"
+                  style={styles.cardImg}
+                />
+              </View>
+              <View style={styles.cardInfo}>
+                <Text style={styles.cardTitle}>Electrician</Text>
+                
+              </View>
+            </View>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => {navigation.navigate('ServiceCategoryDetails', {subCategory: 'Carpenter'})}}>
+          <View style={styles.cardsWrapper}>
+            <View style={styles.card}>
+              <View style={styles.cardImgWrapper}>
+                <Image
+                  source={require('../../assets/carpenter.jpg')}
+                  resizeMode="cover"
+                  style={styles.cardImg}
+                />
+              </View>
+              <View style={styles.cardInfo}>
+                <Text style={styles.cardTitle}>Carpenter</Text>
+                
+              </View>
+            </View>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => {navigation.navigate('ServiceCategoryDetails', {subCategory: 'Painter'})}}>
+          <View style={styles.cardsWrapper}>
+            <View style={styles.card}>
+              <View style={styles.cardImgWrapper}>
+                <Image
+                  source={require('../../assets/painter.png')}
+                  resizeMode="cover"
+                  style={styles.cardImg}
+                />
+              </View>
+              <View style={styles.cardInfo}>
+                <Text style={styles.cardTitle}>Painter</Text>
+                
+              </View>
+            </View>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => {navigation.navigate('ServiceCategoryDetails', {subCategory: 'Gardener'})}}>
+          <View style={styles.cardsWrapper}>
+            <View style={styles.card}>
+              <View style={styles.cardImgWrapper}>
+                <Image
+                  source={require('../../assets/gardener.jpg')}
+                  resizeMode="cover"
+                  style={styles.cardImg}
+                />
+              </View>
+              <View style={styles.cardInfo}>
+                <Text style={styles.cardTitle}>Gardener</Text>
+                
+              </View>
+            </View>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => {navigation.navigate('ServiceCategoryDetails', {subCategory: 'Labour'})}}>
+          <View style={styles.cardsWrapper}>
+            <View style={styles.card}>
+              <View style={styles.cardImgWrapper}>
+                <Image
+                  source={require('../../assets/labour.jpg')}
+                  resizeMode="cover"
+                  style={styles.cardImg}
+                />
+              </View>
+              <View style={styles.cardInfo}>
+                <Text style={styles.cardTitle}>Labour</Text>
+                
               </View>
             </View>
           </View>
@@ -119,7 +200,7 @@ const ProductCategories = () => {
   );
 };
 
-export default ProductCategories;
+export default ServiceCategories;
 
 const styles = StyleSheet.create({
   container: {
@@ -160,9 +241,12 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 8,
     borderTopRightRadius: 8,
     backgroundColor: '#fff',
+    paddingTop:15,
+    backgroundColor:'orange'
   },
   cardTitle: {
     fontWeight: 'bold',
+    fontSize:16
   },
   cardDetails: {
     fontSize: 12,

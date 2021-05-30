@@ -24,7 +24,7 @@ const Login = ({navigation}) => {
   
   const [visible, setVisible] = useState(true);
 
-  const {login} = useContext(AuthContext);
+  const {login,} = useContext(AuthContext);
 
   // const handleLogin = () => {
   //   if (email.length < 4 || email.length == 0) {

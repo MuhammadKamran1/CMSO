@@ -16,6 +16,7 @@ import login from '../screens/Login';
 import {AuthContext} from '../screens/navigation/AuthProvider';
 import database from '@react-native-firebase/database';
 import uuid from 'react-native-uuid';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const Signup = ({navigation}) => {
@@ -77,9 +78,10 @@ const Signup = ({navigation}) => {
     }
   }
 
-  const saveUserDb=()=>{
+  const saveUserDb= async()=>{
+     await AsyncStorage.setItem('Mobile',mobilenumber)
     database()
-    .ref(`/CMSO/Users/${Mobile}/`)
+    .ref(`/CMSO/Users/${mobilenumber}/`)
     .set({
     Name: name,
     Mobile: mobilenumber,
@@ -100,6 +102,7 @@ const Signup = ({navigation}) => {
       <Text style={{fontSize:20,color:'white',fontStyle:'italic'}}>Build With Us</Text>
 
       <View style={styles.cointainer}>
+        <Text style={{color:'white', fontSize:18, paddingHorizontal:12}}>Create an Account</Text>
         <TextInput
           style={styles.inputBox}
           placeholder="Full Name"

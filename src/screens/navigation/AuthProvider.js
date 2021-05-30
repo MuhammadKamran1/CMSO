@@ -16,9 +16,18 @@ const AuthProvider = ({children}) => {
         login: async ( email, password) => {
           try {
             await auth().signInWithEmailAndPassword(email, password);
-            await AsyncStorage.setItem('Email', email)
+            await AsyncStorage.setItem('Email',email) 
           } catch (e) {
-            console.error(e);
+            alert(e);
+          }
+        },
+
+        forgotPassword: async (email)=>{
+          try {
+            await auth().sendPasswordResetEmail(email);
+            alert('Check Your Email')
+          } catch (e) {
+            alert(e);
           }
         },
 
@@ -27,7 +36,7 @@ const AuthProvider = ({children}) => {
             await auth().createUserWithEmailAndPassword(email, password);
             await AsyncStorage.setItem('Email', email)
           } catch (e) {
-            console.error(e);
+            alert(e);
           }
         },
         logout: async () => {
