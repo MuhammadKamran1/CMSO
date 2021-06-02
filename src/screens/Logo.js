@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React,{Component} from 'react'
 import {Image,View, Text, StyleSheet} from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
@@ -13,6 +14,24 @@ class Logo extends Component{
             
         );
     }
+=======
+import React, {Component} from 'react';
+import {Image, View, Text, StyleSheet} from 'react-native';
+//import {Colors} from 'react-native/Libraries/NewAppScreen';
+
+class Logo extends Component {
+  render() {
+    return (
+      <View row style={styles.cointainer}>
+        <Image
+          style={{ width:100,height:50,resizeMode:'stretch'}}
+          source={require('../assets/logo.png')}
+        />
+        {/* <Text style={styles.logoText}>Build With Us</Text> */}
+      </View>
+    );
+  }
+>>>>>>> Stashed changes
 }
 
 
